@@ -284,6 +284,65 @@ def draw_mixed_font_line(
     
     return
 
+from PIL import Image, ImageDraw
+import numpy as np
+
+
+def draw_gradient_text(
+    base_image,
+    position,
+    text,
+    font,
+    start_color,
+    end_color=(255, 255, 255),
+    anchor="mm",
+):
+    """
+    Draw horizontal gradient text onto base_image.
+    """
+    x, y = position
+    # Measure exact glyph bounds
+    temp_draw = ImageDraw.Draw(base_image)
+    bbox = temp_draw.textbbox((0, 0), text, font=font, anchor=None)
+    left, top, right, bottom = bbox
+    w = right - left
+    h = bottom - top
+
+    if w <= 0 or h <= 0:
+        return
+
+    # Build text mask with proper glyph offset compensation
+    mask = Image.new("L", (w, h), 0)
+    mask_draw = ImageDraw.Draw(mask)
+    mask_draw.text((-left, -top), text, font=font, fill=255)
+
+    # Build horizontal RGB gradient
+    t = np.linspace(0.0, 1.0, w, dtype=np.float32) ** 0.6
+    grad_row = (
+        np.array(start_color, dtype=np.float32)[None, :]
+        + (np.array(end_color, dtype=np.float32) - np.array(start_color, dtype=np.float32))[None, :] * t[:, None]
+    )
+    grad = np.broadcast_to(grad_row[None, :, :], (h, w, 3)).astype(np.uint8)
+    grad_img = Image.fromarray(grad, "RGB")
+
+    # Anchor handling
+    if anchor == "mm":
+        paste_x = int(round(x - w / 2))
+        paste_y = int(round(y - h / 2))
+    elif anchor == "lm":
+        paste_x = int(round(x))
+        paste_y = int(round(y - h / 2))
+    elif anchor == "rm":
+        paste_x = int(round(x - w))
+        paste_y = int(round(y - h / 2))
+    elif anchor == "lt":
+        paste_x = int(round(x))
+        paste_y = int(round(y))
+    else:
+        raise ValueError(f"Unsupported anchor: {anchor}")
+
+    base_image.paste(grad_img, (paste_x, paste_y), mask)
+
 def make_cards(
     data,
     front_background,
@@ -322,6 +381,7 @@ def make_cards(
         unlock_condition = "UNLOCK: " + row['Unlock Condition']
         reward_wording = row['Reward Wording']
         faction_color = row['Faction Color']
+        faction_color = tuple(int(faction_color[i:i+2], 16) for i in (0, 2, 4))
 
         # Create a new image for the card
         card_image = Image.new('RGBA', front_background.size)
@@ -342,8 +402,24 @@ def make_cards(
 
         center_x = back_image.width // 2
         for line in title_lines:
-            draw_back.text((center_x, y), line, font=font_header, fill='white', anchor="mm")
-            draw.text((center_x, y), line, font=font_header, fill='white', anchor="mm")
+            draw_gradient_text(
+                card_image,
+                (center_x, y),
+                line,
+                font_header,
+                faction_color,
+                (255, 255, 255),
+                anchor="mm"
+            )
+            draw_gradient_text(
+                back_image,
+                (center_x, y),
+                line,
+                font_header,
+                faction_color,
+                (255, 255, 255),
+                anchor="mm"
+            )
             y += header_font_size + extra_y_inc
 
         # Write the unlock condition text on the card centered in the middle of the card
@@ -434,14 +510,13 @@ def main():
     expansions = data['Expansion'].unique()
 
     # Check if the generatedImages folder exists
-    if args.gamecrafter and not os.path.exists("generatedImages/gamecrafter"):
-        os.makedirs("generatedImages/gamecrafter")
+    if args.gamecrafter:
         generated_images_loc = "generatedImages/gamecrafter"
-    elif not args.gamecrafter and not os.path.exists("generatedImages"):
-        os.makedirs("generatedImages")
-        generated_images_loc = "generatedImages"
     else:
-        generated_images_loc = "generatedImages"
+        generated_images_loc = "generatedImages/full-resolution"
+        
+    if not os.path.exists(f"{generated_images_loc}/gamecrafter"):
+        os.makedirs(f"{generated_images_loc}/gamecrafter")
 
     for expansion in expansions:
         # Check if the fronts folder exists
@@ -545,12 +620,12 @@ def main():
         # End Timer
         end_time = time.time()
         print(f"Card generation completed in {end_time - start_time:.2f} seconds.")
-    
+
     # Generate Deck Images for TTS
     if args.tts_mode:
         # Check if deck folder exists
-        if not os.path.exists("generatedImages/decks"):
-            os.makedirs("generatedImages/decks")
+        if not os.path.exists(f"{generated_images_loc}/decks"):
+            os.makedirs(f"{generated_images_loc}/decks")
 
         x_deck = 10
         for expansion in expansions:
@@ -583,8 +658,8 @@ def main():
                 combined_front = combined_front.convert("RGB")
                 combined_back = combined_back.convert("RGB")
 
-            combined_front.save(f"generatedImages/decks/{expansion}_deck_front.jpg", quality=50)
-            combined_back.save(f"generatedImages/decks/{expansion}_deck_back.jpg", quality=50)
+            combined_front.save(f"{generated_images_loc}/decks/{expansion}_deck_front.jpg", quality=50)
+            combined_back.save(f"{generated_images_loc}/decks/{expansion}_deck_back.jpg", quality=50)
     
 
 if __name__ == "__main__":
