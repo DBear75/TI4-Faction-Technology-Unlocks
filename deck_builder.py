@@ -591,10 +591,10 @@ def main():
         color_maps_loc = f"{generated_images_loc}/color-maps"
     
     # Define the font and size for the text
-    font_header = ImageFont.truetype("SliderTI-_.otf", header_font_size)
-    font_body = ImageFont.truetype("MyriadPro-Regular.otf", body_font_size)
-    font_unlock = ImageFont.truetype("MYRIADPRO-BOLDIT.otf", body_font_size)
-    font_special = ImageFont.truetype("SliderTI-_.otf", int(0.9*body_font_size))
+    font_header = ImageFont.truetype("fonts/SliderTI-_.otf", header_font_size)
+    font_body = ImageFont.truetype("fonts/MyriadPro-Regular.otf", body_font_size)
+    font_unlock = ImageFont.truetype("fonts/MYRIADPRO-BOLDIT.otf", body_font_size)
+    font_special = ImageFont.truetype("fonts/SliderTI-_.otf", int(0.9*body_font_size))
 
     # pre-load faction symbols by looking in faction-icons folder and mapping file names to faction names
     faction_symbols = {}
@@ -645,7 +645,8 @@ def main():
         max_workers = min(max(1, cpu_count() - 2), data.shape[0]//16)
         print(f"Using {max_workers} workers for parallel card generation...")
         # Split data into chunks for each worker
-        data_chunks = np.array_split(data, max_workers)
+        indices = np.array_split(data.index, max_workers)
+        data_chunks = [data.loc[idx] for idx in indices]
 
         with ProcessPoolExecutor(max_workers=max_workers) as executor:
             futures = []
