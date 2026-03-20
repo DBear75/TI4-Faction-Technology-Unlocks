@@ -673,8 +673,8 @@ def main():
                 future.result()
         
         # End Timer
-        end_time = time.time()
-        print(f"Card generation completed in {end_time - color_maps_built_time:.2f} seconds.")
+        card_made = time.time()
+        print(f"Card generation completed in {card_made - color_maps_built_time:.2f} seconds.")
 
     # Generate Deck Images for TTS
     if args.tts_mode:
@@ -730,8 +730,8 @@ def main():
             combined_front.save(f"{generated_images_loc}/decks/{expansion}_deck_front.jpg", quality=50)
             combined_back.save(f"{generated_images_loc}/decks/{expansion}_deck_back.jpg", quality=50)
         
-        end_time = time.time()
-        print(f"Deck generation completed in {end_time - color_maps_built_time:.2f} seconds.")
+        deck_made = time.time()
+        print(f"Deck generation completed in {deck_made - card_made:.2f} seconds.")
     
     total_end_time = time.time()
     print(f"Total execution time: {total_end_time - start_time:.2f} seconds.")
