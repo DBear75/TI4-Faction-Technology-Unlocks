@@ -541,10 +541,15 @@ def main():
 
     parser.add_argument("--tts-mode", action='store_true', default=False)
 
+    parser.add_argument("--faction-displays", action='store_true', default=False, help="Generate combined faction display images in addition to individual cards.")
+
     args = parser.parse_args()
 
     if args.deck_only:
         args.tts_mode = True
+        if args.clean_build:
+            print("Warning: --clean-build cannot be used with --deck-only. Clean build will be skipped.")
+            args.clean_build = False
 
     # Read the input CSV file
     data = pd.read_csv(args.input_file)
@@ -676,8 +681,40 @@ def main():
         card_made = time.time()
         print(f"Card generation completed in {card_made - color_maps_built_time:.2f} seconds.")
 
+    if args.faction_displays:
+        faction_displays_start_time = time.time()
+        # Generate faction displays for sharing purposes
+        for faction in data['Faction'].unique():
+            # Check if faction displays folder exists
+            if not os.path.exists(f"{generated_images_loc}/faction_displays"):
+                os.makedirs(f"{generated_images_loc}/faction_displays")
+            
+            faction_cards = data[data['Faction'] == faction]
+            x_display = 2
+            y_display = len(faction_cards)
+            display_image = Image.new('RGBA', (front_background.width*x_display, front_background.height*y_display))
+            for i, faction_card in enumerate(faction_cards.itertuples()):
+                expansion = faction_card.Expansion
+                title = faction_card.Title
+                front_path = f"{generated_images_loc}/{expansion}/fronts/{faction.lower()}_{title}-front.png"
+                back_path = f"{generated_images_loc}/{expansion}/backs/{faction.lower()}_{title}-back.png"
+                front_image = Image.open(front_path)
+                back_image = Image.open(back_path)
+
+                x1 = 0
+                y1 = i*front_image.height
+                display_image.paste(front_image, (x1, y1))
+                display_image.paste(back_image, (x1 + front_image.width, y1))
+
+            display_image.save(f"{generated_images_loc}/faction_displays/{faction}_display.png")
+        
+        faction_displays_made = time.time()
+        print(f"Faction display generation completed in {faction_displays_made - faction_displays_start_time:.2f} seconds.")
+
+
     # Generate Deck Images for TTS
     if args.tts_mode:
+        deck_build_start_time = time.time()
         # Check if deck folder exists
         if not os.path.exists(f"{generated_images_loc}/decks"):
             os.makedirs(f"{generated_images_loc}/decks")
@@ -686,7 +723,7 @@ def main():
         for expansion in expansions:
             fronts = []
             backs = []
-            for index, row in data[data['Expansion'] == expansion].iterrows():
+            for _, row in data[data['Expansion'] == expansion].iterrows():
                 faction = row['Faction']
                 title = row['Title']
                 front_path = f"{generated_images_loc}/{expansion}/fronts/{faction.lower()}_{title}-front.png"
@@ -731,7 +768,7 @@ def main():
             combined_back.save(f"{generated_images_loc}/decks/{expansion}_deck_back.jpg", quality=50)
         
         deck_made = time.time()
-        print(f"Deck generation completed in {deck_made - card_made:.2f} seconds.")
+        print(f"Deck generation completed in {deck_made - deck_build_start_time:.2f} seconds.")
     
     total_end_time = time.time()
     print(f"Total execution time: {total_end_time - start_time:.2f} seconds.")
