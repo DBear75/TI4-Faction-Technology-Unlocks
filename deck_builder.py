@@ -8,6 +8,7 @@ import sys
 from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import cpu_count
 import time
+import shutil
 
 _EPS = 1e-12
 
@@ -284,9 +285,6 @@ def draw_mixed_font_line(
     
     return
 
-from PIL import Image, ImageDraw
-import numpy as np
-
 
 def draw_gradient_text(
     base_image,
@@ -365,14 +363,20 @@ def make_cards(
         border = 225
         edge_distance = 125
         faction_symbol_size = 125
-        generated_images_loc = "generatedImages/gamecrafter"
+        tech_unlock_icon_size = 50
+        tech_unlock_icon_edge_distance = 90
+        generated_images_loc = "generatedFiles/gamecrafter"
     else:
         title_y = 225
         extra_y_inc = 10
         border = 450
         edge_distance = 250
         faction_symbol_size = 250
-        generated_images_loc = "generatedImages"
+        tech_unlock_icon_size = 100
+        tech_unlock_icon_edge_distance = 180
+        generated_images_loc = "generatedFiles/full-resolution"
+
+    tech_unlock_icon = Image.open("expansion-icons/technology-unlocks.png").convert("RGBA")
 
     for index, row in data.iterrows():
         faction = row['Faction']
@@ -380,8 +384,9 @@ def make_cards(
         title = row['Title']
         unlock_condition = "UNLOCK: " + row['Unlock Condition']
         reward_wording = row['Reward Wording']
-        faction_color = row['Faction Color']
-        faction_color = tuple(int(faction_color[i:i+2], 16) for i in (0, 2, 4))
+        gradient_color = row['Gradient Color']
+        gradient_color = tuple(int(gradient_color[i:i+2], 16) for i in (0, 2, 4))
+
 
         # Create a new image for the card
         card_image = Image.new('RGBA', front_background.size)
@@ -407,7 +412,7 @@ def make_cards(
                 (center_x, y),
                 line,
                 font_header,
-                faction_color,
+                gradient_color,
                 (255, 255, 255),
                 anchor="mm"
             )
@@ -416,7 +421,7 @@ def make_cards(
                 (center_x, y),
                 line,
                 font_header,
-                faction_color,
+                gradient_color,
                 (255, 255, 255),
                 anchor="mm"
             )
@@ -463,10 +468,48 @@ def make_cards(
         else:
             print(f"Warning: No faction symbol found for {faction}")
 
+        # paste the expansion icon in the bottom right corner of the back and bottom right corner of the front
+        tech_unlock_icon_resized = tech_unlock_icon.resize((tech_unlock_icon_size, tech_unlock_icon_size), Image.LANCZOS)
+        x_loc = tech_unlock_icon_edge_distance
+        y_loc = card_image.height - tech_unlock_icon_resized.height - tech_unlock_icon_edge_distance
+        card_image.paste(
+            tech_unlock_icon_resized, 
+            (x_loc, y_loc),
+            tech_unlock_icon_resized
+        )
+        if os.path.exists(f"expansion-icons/{expansion}.png"):
+            expansion_icon = Image.open(f"expansion-icons/{expansion}.png").convert("RGBA")
+            expansion_icon_resized = expansion_icon.resize((tech_unlock_icon_size, tech_unlock_icon_size), Image.LANCZOS)
+            card_image.paste(
+                expansion_icon_resized, 
+                (x_loc+int(tech_unlock_icon_resized.width*1.1), y_loc),
+                expansion_icon_resized
+            )
+            x_loc = card_image.width - tech_unlock_icon_resized.width - tech_unlock_icon_edge_distance
+            back_image.paste(
+                expansion_icon_resized, 
+                (x_loc, y_loc),
+                expansion_icon_resized
+            )
+            back_image.paste(
+                tech_unlock_icon_resized, 
+                (x_loc-int(tech_unlock_icon_resized.width*1.1), y_loc),
+                tech_unlock_icon_resized
+            )
+        else:
+            x_loc = card_image.width - tech_unlock_icon_resized.width - tech_unlock_icon_edge_distance
+            back_image.paste(
+                tech_unlock_icon_resized, 
+                (x_loc, y_loc),
+                tech_unlock_icon_resized
+            )
+
+        
+            
+
         # Save the card images
         card_image.save(f"{generated_images_loc}/{expansion}/fronts/{faction.lower()}_{title}-front.png")
         back_image.save(f"{generated_images_loc}/{expansion}/backs/{faction.lower()}_{title}-back.png")
-
 
 def main():
     # Start Timer
@@ -494,11 +537,11 @@ def main():
         help="Only generate the combined deck images for TTS, skipping individual card images. Implies --tts-mode."
     )
 
+    parser.add_argument("--clean-build", action='store_true', default=False, help="Delete all generated images before generating new ones.")
+
     parser.add_argument("--tts-mode", action='store_true', default=False)
 
     args = parser.parse_args()
-
-    print("GameCrafter mode:", args.gamecrafter)
 
     if args.deck_only:
         args.tts_mode = True
@@ -509,14 +552,17 @@ def main():
     # Find list of unique expansions in the data
     expansions = data['Expansion'].unique()
 
-    # Check if the generatedImages folder exists
+    # Check if the generatedFiles folder exists
     if args.gamecrafter:
-        generated_images_loc = "generatedImages/gamecrafter"
+        generated_images_loc = "generatedFiles/gamecrafter"
     else:
-        generated_images_loc = "generatedImages/full-resolution"
+        generated_images_loc = "generatedFiles/full-resolution"
         
-    if not os.path.exists(f"{generated_images_loc}/gamecrafter"):
-        os.makedirs(f"{generated_images_loc}/gamecrafter")
+    if args.clean_build and os.path.exists(generated_images_loc):
+        shutil.rmtree(generated_images_loc)
+    
+    elif not os.path.exists(f"{generated_images_loc}"):
+        os.makedirs(f"{generated_images_loc}")
 
     for expansion in expansions:
         # Check if the fronts folder exists
@@ -557,7 +603,8 @@ def main():
             faction_name = os.path.splitext(filename)[0]
             faction_symbols[faction_name] = Image.open(os.path.join("faction-icons", filename))
 
-    # pre-build color maps by filling the white areas of the color area images with the faction color, and leaving the rest transparent
+    # pre-build color maps by filling the white areas of the color area images
+    # with the starfield and card colors, and leaving the rest transparent
     color_maps = {}
     for faction in data['Faction'].unique():
         if os.path.exists(f"{color_maps_loc}/{faction}_card.png") and os.path.exists(f"{color_maps_loc}/{faction}_starfield.png"):
@@ -569,12 +616,16 @@ def main():
             }
             continue
         # Color is in for FFFFFF format, we need to convert it to an (R, G, B) tuple
-        faction_color = data.loc[data['Faction'] == faction, 'Faction Color'].iloc[0]
-        faction_color = tuple(int(faction_color[i:i+2], 16) for i in (0, 2, 4))
+        card_color = data.loc[data['Faction'] == faction, 'Card Color'].iloc[0]
+        card_color = tuple(int(card_color[i:i+2], 16) for i in (0, 2, 4))
+
+        # Color is in for FFFFFF format, we need to convert it to an (R, G, B) tuple
+        starfield_color = data.loc[data['Faction'] == faction, 'Starfield Color'].iloc[0]
+        starfield_color = tuple(int(starfield_color[i:i+2], 16) for i in (0, 2, 4))
         
         # Create color map for card
-        card_color_map = build_color_map(card_color_area, faction_color)
-        starfield_color_map = build_color_map(starfield_color_area, faction_color)
+        card_color_map = build_color_map(card_color_area, card_color)
+        starfield_color_map = build_color_map(starfield_color_area, starfield_color)
 
         # Save the color maps for future use
         if not os.path.exists(color_maps_loc):
@@ -639,13 +690,27 @@ def main():
                 fronts.append(Image.open(front_path))
                 backs.append(Image.open(back_path))
             
-            deck_size = (fronts[0].width * x_deck, fronts[0].height * ((len(fronts) + x_deck - 1) // x_deck))
+            if args.gamecrafter:
+                bleed = 35
+            else:
+                bleed = 70
+
+            card_width = fronts[0].width - 2*bleed
+            card_height = fronts[0].height - 2*bleed
+            deck_size = (card_width * x_deck, card_height * ((len(fronts) + x_deck - 1) // x_deck))
             # Combine all fronts into a single image
             combined_front = Image.new('RGBA', deck_size)
             combined_back = Image.new('RGBA', deck_size)
+            
+
             for i, (front, back) in enumerate(zip(fronts, backs)):
-                x = (i % x_deck)*front.width
-                y = (i // x_deck)*front.height
+                # Crop each card to remove bleed and paste into the combined image
+                front = front.crop((bleed, bleed, front.width - bleed, front.height - bleed))
+                back = back.crop((bleed, bleed, back.width - bleed, back.height - bleed))
+
+                # Paste the card into the correct location in the combined image
+                x = (i % x_deck)*card_width
+                y = (i // x_deck)*card_height
                 combined_front.paste(front, (x, y))
                 combined_back.paste(back, (x, y))
             
@@ -656,11 +721,10 @@ def main():
             else:
                 # Just remove alpha channel for GameCrafter
                 combined_front = combined_front.convert("RGB")
-                combined_back = combined_back.convert("RGB")
+                combined_back = combined_back.convert("RGB")            
 
             combined_front.save(f"{generated_images_loc}/decks/{expansion}_deck_front.jpg", quality=50)
             combined_back.save(f"{generated_images_loc}/decks/{expansion}_deck_back.jpg", quality=50)
-    
 
 if __name__ == "__main__":
     main()
