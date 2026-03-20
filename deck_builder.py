@@ -378,7 +378,7 @@ def make_cards(
 
     tech_unlock_icon = Image.open("expansion-icons/technology-unlocks.png").convert("RGBA")
 
-    for index, row in data.iterrows():
+    for _, row in data.iterrows():
         faction = row['Faction']
         expansion = row['Expansion']
         title = row['Title']
@@ -503,9 +503,6 @@ def make_cards(
                 (x_loc, y_loc),
                 tech_unlock_icon_resized
             )
-
-        
-            
 
         # Save the card images
         card_image.save(f"{generated_images_loc}/{expansion}/fronts/{faction.lower()}_{title}-front.png")
@@ -701,16 +698,14 @@ def main():
                 front_image = Image.open(front_path)
                 back_image = Image.open(back_path)
 
-                x1 = 0
                 y1 = i*front_image.height
-                display_image.paste(front_image, (x1, y1))
-                display_image.paste(back_image, (x1 + front_image.width, y1))
+                display_image.paste(front_image, (0, y1))
+                display_image.paste(back_image, (front_image.width, y1))
 
             display_image.save(f"{generated_images_loc}/faction_displays/{faction}_display.png")
         
         faction_displays_made = time.time()
         print(f"Faction display generation completed in {faction_displays_made - faction_displays_start_time:.2f} seconds.")
-
 
     # Generate Deck Images for TTS
     if args.tts_mode:
