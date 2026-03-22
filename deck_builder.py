@@ -9,8 +9,291 @@ from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import cpu_count
 import time
 import shutil
+import json
+import uuid
+from datetime import datetime
+from urllib.parse import quote
 
 _EPS = 1e-12
+
+def tts_guid():
+    """TTS GUIDs are 6 hex chars in most save files."""
+    return uuid.uuid4().hex[:6]
+
+
+def tts_transform(pos_x=0, pos_y=1, pos_z=0, rot_x=0, rot_y=0, rot_z=0, scale_x=1, scale_y=1, scale_z=1):
+    return {
+        "posX": float(pos_x),
+        "posY": float(pos_y),
+        "posZ": float(pos_z),
+        "rotX": float(rot_x),
+        "rotY": float(rot_y),
+        "rotZ": float(rot_z),
+        "scaleX": float(scale_x),
+        "scaleY": float(scale_y),
+        "scaleZ": float(scale_z),
+    }
+
+
+def tts_color_from_hex(rgb_hex: str):
+    """
+    Convert 'FFAABB' or '#FFAABB' -> TTS float RGB dict
+    """
+    rgb_hex = rgb_hex.strip().lstrip("#")
+    if len(rgb_hex) != 6:
+        raise ValueError(f"Expected 6-digit hex color, got: {rgb_hex}")
+
+    r = int(rgb_hex[0:2], 16)
+    g = int(rgb_hex[2:4], 16)
+    b = int(rgb_hex[4:6], 16)
+
+    return {
+        "r": r / 255.0,
+        "g": g / 255.0,
+        "b": b / 255.0,
+    }
+
+
+def tts_color(r=0.713, g=0.713, b=0.713):
+    return {"r": float(r), "g": float(g), "b": float(b)}
+
+
+def encode_url_path_component(name: str) -> str:
+    return quote(name, safe="._-")
+
+
+def build_expansion_card_index_map(data):
+    """
+    For each expansion, map (Faction, Title) -> sheet position index.
+    This must match the order used when the deck sheet image was built.
+    """
+    expansion_index_map = {}
+    expansion_sheet_sizes = {}
+
+    for expansion in data["Expansion"].unique():
+        exp_rows = data[data["Expansion"] == expansion].reset_index(drop=True)
+        expansion_index_map[expansion] = {}
+
+        for i, (_, row) in enumerate(exp_rows.iterrows()):
+            key = (str(row["Faction"]), str(row["Title"]))
+            expansion_index_map[expansion][key] = i
+
+        expansion_sheet_sizes[expansion] = {
+            "NumWidth": 10,
+            "NumHeight": max(1, (len(exp_rows) + 9) // 10),
+        }
+
+    return expansion_index_map, expansion_sheet_sizes
+
+
+def build_deck_image_urls(expansions):
+    deck_image_url_prefix = (
+        "https://raw.githubusercontent.com/DBear75/"
+        "TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files"
+    )
+
+    deck_image_urls = {}
+    for expansion in expansions:
+        safe_expansion = encode_url_path_component(expansion)
+        deck_image_urls[expansion] = {
+            "front": f"{deck_image_url_prefix}/deck-front-imgs/{safe_expansion}_deck_front.jpg",
+            "back": f"{deck_image_url_prefix}/deck-back-imgs/{safe_expansion}_deck_back.jpg",
+        }
+
+    return deck_image_urls
+
+
+def build_tts_card_object(row, card_id, custom_deck_key, deck_entry):
+    return {
+        "GUID": tts_guid(),
+        "Name": "Card",
+        "Transform": tts_transform(),
+        "Nickname": str(row["Title"]),
+        "Description": f"{row['Faction']} - {row['Expansion']}",
+        "GMNotes": "",
+        "AltLookAngle": {"x": 0.0, "y": 0.0, "z": 0.0},
+        "ColorDiffuse": tts_color(),
+        "LayoutGroupSortIndex": 0,
+        "Value": 0,
+        "Locked": False,
+        "Grid": True,
+        "Snap": True,
+        "IgnoreFoW": False,
+        "MeasureMovement": False,
+        "DragSelectable": True,
+        "Autoraise": True,
+        "Sticky": True,
+        "Tooltip": True,
+        "GridProjection": False,
+        "HideWhenFaceDown": False,
+        "Hands": True,
+        "CardID": int(card_id),
+        "SidewaysCard": False,
+        "CustomDeck": {
+            str(custom_deck_key): deck_entry
+        },
+        "LuaScript": "",
+        "LuaScriptState": "",
+        "XmlUI": ""
+    }
+
+
+def build_faction_bag_object(
+    faction,
+    faction_rows,
+    expansion_index_map,
+    expansion_sheet_sizes,
+    deck_image_urls,
+):
+    contained_cards = []
+
+    for _, row in faction_rows.iterrows():
+        expansion = str(row["Expansion"])
+        title = str(row["Title"])
+        key = (str(faction), title)
+
+        if key not in expansion_index_map[expansion]:
+            raise KeyError(f"Could not find card index for {key} in expansion {expansion}")
+
+        sheet_index = expansion_index_map[expansion][key]
+
+        # Use a stable deck key per expansion so multiple expansions can coexist
+        # inside one faction bag without key collisions.
+        # Example: Base might be 31, New Dawn 26, DS+ 29, etc.
+        # We derive it from the order of expansions in the index map.
+        expansion_list = list(expansion_index_map.keys())
+        custom_deck_key = expansion_list.index(expansion) + 1
+
+        # TTS card ID is <deck_key>*100 + sheet_index
+        card_id = custom_deck_key * 100 + sheet_index
+
+        deck_entry = {
+            "FaceURL": deck_image_urls[expansion]["front"],
+            "BackURL": deck_image_urls[expansion]["back"],
+            "NumWidth": expansion_sheet_sizes[expansion]["NumWidth"],
+            "NumHeight": expansion_sheet_sizes[expansion]["NumHeight"],
+            "BackIsHidden": True,
+            "UniqueBack": True,
+            "Type": 0
+        }
+
+        contained_cards.append(
+            build_tts_card_object(
+                row=row,
+                card_id=card_id,
+                custom_deck_key=custom_deck_key,
+                deck_entry=deck_entry
+            )
+        )
+
+        faction_color = row['Card Color']
+
+    return {
+        "GUID": tts_guid(),
+        "Name": "Bag",
+        "Transform": tts_transform(),
+        "Nickname": str(faction),
+        "Description": "",
+        "GMNotes": "",
+        "AltLookAngle": {"x": 0.0, "y": 0.0, "z": 0.0},
+        "ColorDiffuse": tts_color_from_hex(faction_color),
+        "LayoutGroupSortIndex": 0,
+        "Value": 0,
+        "Locked": False,
+        "Grid": True,
+        "Snap": True,
+        "IgnoreFoW": False,
+        "MeasureMovement": False,
+        "DragSelectable": True,
+        "Autoraise": True,
+        "Sticky": True,
+        "Tooltip": True,
+        "GridProjection": False,
+        "HideWhenFaceDown": False,
+        "Hands": False,
+        "MaterialIndex": -1,
+        "MeshIndex": -1,
+        "Bag": {"Order": 0},
+        "LuaScript": "",
+        "LuaScriptState": "",
+        "XmlUI": "",
+        "ContainedObjects": contained_cards
+    }
+
+
+def build_tts_bag_by_faction(data, deck_image_urls):
+    expansion_index_map, expansion_sheet_sizes = build_expansion_card_index_map(data)
+
+    faction_bags = []
+    for faction in sorted(data["Faction"].unique()):
+        faction_rows = data[data["Faction"] == faction].reset_index(drop=True)
+        faction_bags.append(
+            build_faction_bag_object(
+                faction=faction,
+                faction_rows=faction_rows,
+                expansion_index_map=expansion_index_map,
+                expansion_sheet_sizes=expansion_sheet_sizes,
+                deck_image_urls=deck_image_urls,
+            )
+        )
+
+    main_bag = {
+        "GUID": tts_guid(),
+        "Name": "Bag",
+        "Transform": tts_transform(pos_x=0, pos_y=1.5, pos_z=0, rot_x=0, rot_y=0, rot_z=0),
+        "Nickname": "Faction Technology Unlock Cards",
+        "Description": "",
+        "GMNotes": "",
+        "AltLookAngle": {"x": 0.0, "y": 0.0, "z": 0.0},
+        "ColorDiffuse": {
+            "r": 0.7058823,
+            "g": 0.366520882,
+            "b": 0.0
+        },
+        "LayoutGroupSortIndex": 0,
+        "Value": 0,
+        "Locked": False,
+        "Grid": True,
+        "Snap": True,
+        "IgnoreFoW": False,
+        "MeasureMovement": False,
+        "DragSelectable": True,
+        "Autoraise": True,
+        "Sticky": True,
+        "Tooltip": True,
+        "GridProjection": False,
+        "HideWhenFaceDown": False,
+        "Hands": False,
+        "MaterialIndex": -1,
+        "MeshIndex": -1,
+        "Bag": {"Order": 0},
+        "LuaScript": "",
+        "LuaScriptState": "",
+        "XmlUI": "",
+        "ContainedObjects": faction_bags
+    }
+
+    save_obj = {
+        "SaveName": "Faction Technology Unlock Cards",
+        "Date": datetime.now().strftime("%m/%d/%Y %I:%M:%S %p"),
+        "VersionNumber": "",
+        "GameMode": "",
+        "GameType": "",
+        "GameComplexity": "",
+        "Tags": [],
+        "Gravity": 0.5,
+        "PlayArea": 0.5,
+        "Table": "",
+        "Sky": "",
+        "Note": "",
+        "TabStates": {},
+        "LuaScript": "",
+        "LuaScriptState": "",
+        "XmlUI": "",
+        "ObjectStates": [main_bag]
+    }
+
+    return save_obj
 
 def rgb_to_hsl(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
@@ -764,6 +1047,17 @@ def main():
         
         deck_made = time.time()
         print(f"Deck generation completed in {deck_made - deck_build_start_time:.2f} seconds.")
+
+        deck_image_urls = build_deck_image_urls(expansions)
+        tts_save = build_tts_bag_by_faction(data, deck_image_urls)
+
+        tts_json_path = os.path.join("TTS-Files/Objects", "tts_faction_technology_unlocks.json")
+        with open(tts_json_path, "w", encoding="utf-8") as f:
+            json.dump(tts_save, f, indent=2)
+
+        print(f"TTS JSON written to {tts_json_path}")
+
+        
     
     total_end_time = time.time()
     print(f"Total execution time: {total_end_time - start_time:.2f} seconds.")
