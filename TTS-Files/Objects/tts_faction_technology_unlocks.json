@@ -1,6 +1,6 @@
 {
   "SaveName": "Faction Technology Unlock Cards",
-  "Date": "03/22/2026 12:22:36 AM",
+  "Date": "03/22/2026 10:32:47 AM",
   "VersionNumber": "",
   "GameMode": "",
   "GameType": "",
@@ -17,8 +17,8 @@
   "XmlUI": "",
   "ObjectStates": [
     {
-      "GUID": "18680f",
-      "Name": "Bag",
+      "GUID": "c57ffd",
+      "Name": "Custom_Model_Bag",
       "Transform": {
         "posX": 0.0,
         "posY": 1.5,
@@ -39,14 +39,14 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.7058823,
-        "g": 0.366520882,
-        "b": 0.0
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
-      "Grid": true,
+      "Grid": false,
       "Snap": true,
       "IgnoreFoW": false,
       "MeasureMovement": false,
@@ -59,6 +59,27 @@
       "Hands": false,
       "MaterialIndex": -1,
       "MeshIndex": -1,
+      "Number": 0,
+      "CustomMesh": {
+        "MeshURL": "https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/Box.obj",
+        "DiffuseURL": "https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/box-img.png",
+        "NormalURL": "",
+        "ColliderURL": "",
+        "Convex": true,
+        "MaterialIndex": 0,
+        "TypeIndex": 6,
+        "CustomShader": {
+          "SpecularColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "SpecularIntensity": 0.1,
+          "SpecularSharpness": 7.0,
+          "FresnelStrength": 0.4
+        },
+        "CastShadows": true
+      },
       "Bag": {
         "Order": 0
       },
@@ -67,7 +88,7 @@
       "XmlUI": "",
       "ContainedObjects": [
         {
-          "GUID": "c44b73",
+          "GUID": "be5e24",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -80,7 +101,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Arborec",
+          "Nickname": "Arborec Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -96,7 +117,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -117,7 +138,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "bf4521",
+              "GUID": "6cbf49",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -146,7 +167,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -175,7 +196,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "114425",
+              "GUID": "0ac6c3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -204,7 +225,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -235,7 +256,7 @@
           ]
         },
         {
-          "GUID": "1e117b",
+          "GUID": "7aad6c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -248,7 +269,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Argent",
+          "Nickname": "Argent Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -264,7 +285,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -285,7 +306,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "5b1f28",
+              "GUID": "b1c5b6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -314,7 +335,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -343,7 +364,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "4ceb86",
+              "GUID": "46d6b2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -372,7 +393,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -403,7 +424,7 @@
           ]
         },
         {
-          "GUID": "33768b",
+          "GUID": "4e0284",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -416,7 +437,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Atokera",
+          "Nickname": "Atokera Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -432,7 +453,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -453,7 +474,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "f13504",
+              "GUID": "55560e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -482,7 +503,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -511,7 +532,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "13e466",
+              "GUID": "cf55fb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -540,7 +561,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -571,7 +592,7 @@
           ]
         },
         {
-          "GUID": "689fea",
+          "GUID": "a0f938",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -584,7 +605,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Augurs",
+          "Nickname": "Augurs Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -600,7 +621,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -621,7 +642,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "f045d9",
+              "GUID": "0bcefb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -650,7 +671,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -679,7 +700,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "26d118",
+              "GUID": "557a7d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -708,7 +729,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -739,7 +760,7 @@
           ]
         },
         {
-          "GUID": "21e452",
+          "GUID": "b92c98",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -752,7 +773,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Axis",
+          "Nickname": "Axis Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -768,7 +789,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -789,7 +810,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "03bcc0",
+              "GUID": "f72675",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -818,7 +839,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -847,7 +868,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "44511f",
+              "GUID": "e59e8c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -876,7 +897,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -907,7 +928,7 @@
           ]
         },
         {
-          "GUID": "9219d6",
+          "GUID": "5debb5",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -920,7 +941,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Bastion",
+          "Nickname": "Bastion Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -936,7 +957,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -957,7 +978,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "971bf1",
+              "GUID": "5228ff",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -986,7 +1007,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1015,7 +1036,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f6a56e",
+              "GUID": "28a68e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1044,7 +1065,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1075,7 +1096,7 @@
           ]
         },
         {
-          "GUID": "e9fec3",
+          "GUID": "01113f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1088,7 +1109,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Belkosea",
+          "Nickname": "Belkosea Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -1104,7 +1125,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -1125,7 +1146,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "833c02",
+              "GUID": "ce2f5f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1154,7 +1175,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1183,7 +1204,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "fbd467",
+              "GUID": "4b31bf",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1212,7 +1233,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1243,7 +1264,7 @@
           ]
         },
         {
-          "GUID": "40f675",
+          "GUID": "28c6ae",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1256,7 +1277,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Bentor",
+          "Nickname": "Bentor Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -1272,7 +1293,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -1293,7 +1314,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "796694",
+              "GUID": "d7ec3f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1322,7 +1343,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1351,7 +1372,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "41bce7",
+              "GUID": "039394",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1380,7 +1401,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1411,7 +1432,7 @@
           ]
         },
         {
-          "GUID": "2d5bc7",
+          "GUID": "1d4a2c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1424,7 +1445,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Berserkers",
+          "Nickname": "Berserkers Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -1440,7 +1461,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -1461,7 +1482,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3e4d1c",
+              "GUID": "cea8e3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1490,7 +1511,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1519,7 +1540,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e9a2e0",
+              "GUID": "84f371",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1548,7 +1569,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1579,7 +1600,7 @@
           ]
         },
         {
-          "GUID": "d00e6f",
+          "GUID": "01c80a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1592,7 +1613,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Celdauri",
+          "Nickname": "Celdauri Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -1608,7 +1629,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -1629,7 +1650,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "1115fa",
+              "GUID": "0f7f0e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1658,7 +1679,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1687,7 +1708,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "8cfa70",
+              "GUID": "24a1b3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1716,7 +1737,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1747,7 +1768,7 @@
           ]
         },
         {
-          "GUID": "62b52f",
+          "GUID": "c39523",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1760,7 +1781,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Cheiran",
+          "Nickname": "Cheiran Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -1776,7 +1797,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -1797,7 +1818,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e456b1",
+              "GUID": "d94602",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1826,7 +1847,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1855,7 +1876,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "8c3881",
+              "GUID": "f8c4e8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1884,7 +1905,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -1915,7 +1936,7 @@
           ]
         },
         {
-          "GUID": "4c6acb",
+          "GUID": "b5d9b4",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1928,7 +1949,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Creuss",
+          "Nickname": "Creuss Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -1944,7 +1965,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -1965,7 +1986,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "c71300",
+              "GUID": "277d8c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1994,7 +2015,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2023,7 +2044,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "ff77dd",
+              "GUID": "05c274",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2052,7 +2073,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2081,7 +2102,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b0138b",
+              "GUID": "3580dc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2110,7 +2131,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2141,7 +2162,7 @@
           ]
         },
         {
-          "GUID": "3b67f1",
+          "GUID": "1dd6c8",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2154,7 +2175,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Crimson",
+          "Nickname": "Crimson Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -2170,7 +2191,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -2191,7 +2212,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d17f02",
+              "GUID": "7a764d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2220,7 +2241,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2249,7 +2270,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d654a6",
+              "GUID": "12e066",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2278,7 +2299,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2309,7 +2330,7 @@
           ]
         },
         {
-          "GUID": "ab8452",
+          "GUID": "5c5f80",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2322,7 +2343,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Cymiae",
+          "Nickname": "Cymiae Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -2338,7 +2359,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -2359,7 +2380,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "ca1b45",
+              "GUID": "435868",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2388,7 +2409,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2417,7 +2438,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "50b19a",
+              "GUID": "0f68a0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2446,7 +2467,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2477,7 +2498,7 @@
           ]
         },
         {
-          "GUID": "917b52",
+          "GUID": "13b9b8",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2490,7 +2511,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Deepwrought",
+          "Nickname": "Deepwrought Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -2506,7 +2527,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -2527,7 +2548,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "654002",
+              "GUID": "123d1b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2556,7 +2577,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2585,7 +2606,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "286798",
+              "GUID": "bea038",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2614,7 +2635,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2645,7 +2666,7 @@
           ]
         },
         {
-          "GUID": "bde85d",
+          "GUID": "b2c066",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2658,7 +2679,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Dih-Mohn",
+          "Nickname": "Dih-Mohn Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -2674,7 +2695,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -2695,7 +2716,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "aed417",
+              "GUID": "dd3a38",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2724,7 +2745,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2753,7 +2774,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9c0587",
+              "GUID": "ebe84a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2782,7 +2803,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2813,7 +2834,7 @@
           ]
         },
         {
-          "GUID": "16b2d5",
+          "GUID": "fb0096",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2826,7 +2847,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Edyn",
+          "Nickname": "Edyn Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -2842,7 +2863,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -2863,7 +2884,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "878936",
+              "GUID": "0ae846",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2892,7 +2913,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2921,7 +2942,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "5fc897",
+              "GUID": "81dd2a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2950,7 +2971,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -2981,7 +3002,7 @@
           ]
         },
         {
-          "GUID": "9b1a6d",
+          "GUID": "061110",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2994,7 +3015,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Empyrean",
+          "Nickname": "Empyrean Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -3010,7 +3031,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -3031,7 +3052,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "059a13",
+              "GUID": "c81901",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3060,7 +3081,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3089,7 +3110,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "bd8e29",
+              "GUID": "602f99",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3118,7 +3139,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3147,7 +3168,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "ff82b6",
+              "GUID": "a2b86b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3176,7 +3197,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3207,7 +3228,7 @@
           ]
         },
         {
-          "GUID": "920b47",
+          "GUID": "7eabe4",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3220,7 +3241,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Firmament",
+          "Nickname": "Firmament Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -3236,7 +3257,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -3257,7 +3278,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d57c70",
+              "GUID": "6a7d6f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3286,7 +3307,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3315,7 +3336,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9e4bf5",
+              "GUID": "5d3d5d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3344,7 +3365,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3373,7 +3394,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "501746",
+              "GUID": "45ed16",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3402,7 +3423,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3433,7 +3454,7 @@
           ]
         },
         {
-          "GUID": "3abfa9",
+          "GUID": "3b1bc9",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3446,7 +3467,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Florzen",
+          "Nickname": "Florzen Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -3462,7 +3483,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -3483,7 +3504,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d42170",
+              "GUID": "db98b1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3512,7 +3533,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3541,7 +3562,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e21429",
+              "GUID": "6fafbd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3570,7 +3591,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3601,7 +3622,7 @@
           ]
         },
         {
-          "GUID": "415470",
+          "GUID": "f638b3",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3614,7 +3635,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Free Systems",
+          "Nickname": "Free Systems Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -3630,7 +3651,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -3651,7 +3672,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "eb20ba",
+              "GUID": "9c961a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3680,7 +3701,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3709,7 +3730,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d8a3ff",
+              "GUID": "f22311",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3738,7 +3759,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3769,7 +3790,7 @@
           ]
         },
         {
-          "GUID": "9aef90",
+          "GUID": "4a7ab3",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3782,7 +3803,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "GLEdge",
+          "Nickname": "GLEdge Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -3798,7 +3819,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -3819,7 +3840,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "777ef1",
+              "GUID": "b7eb4f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3848,7 +3869,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3877,7 +3898,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "c172db",
+              "GUID": "5dc617",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3906,7 +3927,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -3937,7 +3958,7 @@
           ]
         },
         {
-          "GUID": "8448bf",
+          "GUID": "621d0f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3950,7 +3971,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Ghemina",
+          "Nickname": "Ghemina Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -3966,7 +3987,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -3987,7 +4008,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3d71a4",
+              "GUID": "15e889",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4016,7 +4037,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4045,7 +4066,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "979a1b",
+              "GUID": "52a8ff",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4074,7 +4095,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4105,7 +4126,7 @@
           ]
         },
         {
-          "GUID": "4ca137",
+          "GUID": "71ed2c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4118,7 +4139,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Ghoti",
+          "Nickname": "Ghoti Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -4134,7 +4155,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -4155,7 +4176,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d94a5f",
+              "GUID": "afa184",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4184,7 +4205,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4213,7 +4234,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "76668e",
+              "GUID": "914c98",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4242,7 +4263,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4273,7 +4294,7 @@
           ]
         },
         {
-          "GUID": "229b33",
+          "GUID": "2c6d54",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4286,7 +4307,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Glimmer",
+          "Nickname": "Glimmer Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -4302,7 +4323,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -4323,7 +4344,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "291d34",
+              "GUID": "747524",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4352,7 +4373,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4381,7 +4402,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "8117a9",
+              "GUID": "85fffc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4410,7 +4431,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4441,7 +4462,7 @@
           ]
         },
         {
-          "GUID": "1475c8",
+          "GUID": "4e91fd",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4454,7 +4475,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Hacan",
+          "Nickname": "Hacan Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -4470,7 +4491,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -4491,7 +4512,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "a67f9a",
+              "GUID": "d88a45",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4520,7 +4541,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4549,7 +4570,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "87cfb7",
+              "GUID": "6d6442",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4578,7 +4599,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4607,7 +4628,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "19583f",
+              "GUID": "f69463",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4636,7 +4657,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4667,7 +4688,7 @@
           ]
         },
         {
-          "GUID": "5d4cb4",
+          "GUID": "c50d3b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4680,7 +4701,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Jol-Nar",
+          "Nickname": "Jol-Nar Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -4696,7 +4717,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -4717,7 +4738,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3b06d1",
+              "GUID": "907060",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4746,7 +4767,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4775,7 +4796,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "48c73a",
+              "GUID": "535aad",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4804,7 +4825,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4833,7 +4854,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d6989f",
+              "GUID": "7916f7",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4862,7 +4883,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -4893,7 +4914,7 @@
           ]
         },
         {
-          "GUID": "3e8f60",
+          "GUID": "a4a4bd",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4906,7 +4927,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Kaltrim",
+          "Nickname": "Kaltrim Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -4922,7 +4943,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -4943,7 +4964,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3aee3f",
+              "GUID": "d0573f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4972,7 +4993,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5001,7 +5022,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d07ef5",
+              "GUID": "2d28fe",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5030,7 +5051,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5061,7 +5082,7 @@
           ]
         },
         {
-          "GUID": "8c3a77",
+          "GUID": "1169d0",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5074,7 +5095,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Keleres",
+          "Nickname": "Keleres Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -5090,7 +5111,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -5111,7 +5132,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e105a6",
+              "GUID": "a421d8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5140,7 +5161,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5169,7 +5190,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "edeb73",
+              "GUID": "73a46d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5198,7 +5219,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5227,7 +5248,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "fc57af",
+              "GUID": "2f0cf9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5256,7 +5277,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5285,7 +5306,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "bc899a",
+              "GUID": "f03ecc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5314,7 +5335,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5345,7 +5366,7 @@
           ]
         },
         {
-          "GUID": "e3aa47",
+          "GUID": "0352e0",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5358,7 +5379,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Kollecc",
+          "Nickname": "Kollecc Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -5374,7 +5395,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -5395,7 +5416,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "2d505d",
+              "GUID": "beb4ef",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5424,7 +5445,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5453,7 +5474,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "8c5261",
+              "GUID": "8204e5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5482,7 +5503,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5513,7 +5534,7 @@
           ]
         },
         {
-          "GUID": "e34e7f",
+          "GUID": "82f6c8",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5526,7 +5547,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Kortali",
+          "Nickname": "Kortali Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -5542,7 +5563,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -5563,7 +5584,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "7fd5ce",
+              "GUID": "57a3cc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5592,7 +5613,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5621,7 +5642,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b75a00",
+              "GUID": "4553e6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5650,7 +5671,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5681,7 +5702,7 @@
           ]
         },
         {
-          "GUID": "a1167d",
+          "GUID": "796daf",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5694,7 +5715,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Kyro",
+          "Nickname": "Kyro Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -5710,7 +5731,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -5731,7 +5752,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "f52786",
+              "GUID": "ee646e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5760,7 +5781,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5789,7 +5810,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "7051cc",
+              "GUID": "382746",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5818,7 +5839,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5849,7 +5870,7 @@
           ]
         },
         {
-          "GUID": "54381d",
+          "GUID": "c4e9f7",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5862,7 +5883,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "L'tokk",
+          "Nickname": "L'tokk Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -5878,7 +5899,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -5899,7 +5920,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "c8fbd1",
+              "GUID": "721d38",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5928,7 +5949,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -5957,7 +5978,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "4e6e91",
+              "GUID": "627ce9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5986,7 +6007,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6017,7 +6038,7 @@
           ]
         },
         {
-          "GUID": "0ba974",
+          "GUID": "df5ebb",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6030,7 +6051,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "L1z1x",
+          "Nickname": "L1z1x Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -6046,7 +6067,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -6067,7 +6088,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e3d194",
+              "GUID": "d43675",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6096,7 +6117,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6125,7 +6146,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "2fa8a7",
+              "GUID": "9a05b9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6154,7 +6175,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6185,7 +6206,7 @@
           ]
         },
         {
-          "GUID": "335039",
+          "GUID": "78aff2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6198,7 +6219,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Lanefir",
+          "Nickname": "Lanefir Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -6214,7 +6235,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -6235,7 +6256,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "fbc6ae",
+              "GUID": "336b63",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6264,7 +6285,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6293,7 +6314,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "41c72a",
+              "GUID": "0ca165",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6322,7 +6343,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6353,7 +6374,7 @@
           ]
         },
         {
-          "GUID": "73e491",
+          "GUID": "3aea80",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6366,7 +6387,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Letnev",
+          "Nickname": "Letnev Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -6382,7 +6403,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -6403,7 +6424,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "52eadb",
+              "GUID": "c485ed",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6432,7 +6453,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6461,7 +6482,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "1225bb",
+              "GUID": "61c98b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6490,7 +6511,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6519,7 +6540,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "26ed7b",
+              "GUID": "6b0091",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6548,7 +6569,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6579,7 +6600,7 @@
           ]
         },
         {
-          "GUID": "570261",
+          "GUID": "e5fe9b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6592,7 +6613,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Li-Zho",
+          "Nickname": "Li-Zho Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -6608,7 +6629,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -6629,7 +6650,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "b0b193",
+              "GUID": "21f769",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6658,7 +6679,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6687,7 +6708,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "52e472",
+              "GUID": "9ffbf1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6716,7 +6737,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6747,7 +6768,7 @@
           ]
         },
         {
-          "GUID": "7b8bd6",
+          "GUID": "3df720",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6760,7 +6781,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Mahact",
+          "Nickname": "Mahact Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -6776,7 +6797,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -6797,7 +6818,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "6b29bd",
+              "GUID": "3e02ef",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6826,7 +6847,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6855,7 +6876,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f5b690",
+              "GUID": "f7ea56",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6884,7 +6905,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -6915,7 +6936,7 @@
           ]
         },
         {
-          "GUID": "d6f789",
+          "GUID": "a65966",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6928,7 +6949,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Mentak",
+          "Nickname": "Mentak Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -6944,7 +6965,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -6965,7 +6986,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "b30466",
+              "GUID": "ff05d7",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6994,7 +7015,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7023,7 +7044,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e556e2",
+              "GUID": "e4511a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7052,7 +7073,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7083,7 +7104,7 @@
           ]
         },
         {
-          "GUID": "49b5da",
+          "GUID": "543ec2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7096,7 +7117,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Mirveda",
+          "Nickname": "Mirveda Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -7112,7 +7133,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -7133,7 +7154,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "02e8fc",
+              "GUID": "f033aa",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7162,7 +7183,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7191,7 +7212,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "3cca64",
+              "GUID": "a223f1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7220,7 +7241,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7251,7 +7272,7 @@
           ]
         },
         {
-          "GUID": "3a75eb",
+          "GUID": "98a4e2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7264,7 +7285,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Monks",
+          "Nickname": "Monks Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -7280,7 +7301,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -7301,7 +7322,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "047a9c",
+              "GUID": "3ca13a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7330,7 +7351,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7359,7 +7380,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e111aa",
+              "GUID": "850022",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7388,7 +7409,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7419,7 +7440,7 @@
           ]
         },
         {
-          "GUID": "d2c2c8",
+          "GUID": "ce7ee6",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7432,7 +7453,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Muaat",
+          "Nickname": "Muaat Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -7448,7 +7469,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -7469,7 +7490,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "5738a8",
+              "GUID": "ab6aa9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7498,7 +7519,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7527,7 +7548,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "4cc352",
+              "GUID": "cd3ff9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7556,7 +7577,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7587,7 +7608,7 @@
           ]
         },
         {
-          "GUID": "eb6584",
+          "GUID": "31b80b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7600,7 +7621,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Myko",
+          "Nickname": "Myko Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -7616,7 +7637,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -7637,7 +7658,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0e7b91",
+              "GUID": "590ef0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7666,7 +7687,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7695,7 +7716,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f0c92e",
+              "GUID": "96acfd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7724,7 +7745,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7755,7 +7776,7 @@
           ]
         },
         {
-          "GUID": "71cf53",
+          "GUID": "555eb8",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7768,7 +7789,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Naalu",
+          "Nickname": "Naalu Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -7784,7 +7805,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -7805,7 +7826,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "b55b3e",
+              "GUID": "2cf625",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7834,7 +7855,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7863,7 +7884,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d7631e",
+              "GUID": "0086dd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7892,7 +7913,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -7923,7 +7944,7 @@
           ]
         },
         {
-          "GUID": "784253",
+          "GUID": "9501e7",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7936,7 +7957,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Naaz-Rhoka",
+          "Nickname": "Naaz-Rhoka Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -7952,7 +7973,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -7973,7 +7994,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "76c695",
+              "GUID": "0ff9a1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8002,7 +8023,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8031,7 +8052,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b90830",
+              "GUID": "4900ef",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8060,7 +8081,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8089,7 +8110,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "344735",
+              "GUID": "b1aec4",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8118,7 +8139,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8149,7 +8170,7 @@
           ]
         },
         {
-          "GUID": "11a36e",
+          "GUID": "cb0592",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8162,7 +8183,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Nivyn",
+          "Nickname": "Nivyn Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -8178,7 +8199,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -8199,7 +8220,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "36fac3",
+              "GUID": "9ef1ee",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8228,7 +8249,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8257,7 +8278,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "fd2486",
+              "GUID": "538e91",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8286,7 +8307,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8317,7 +8338,7 @@
           ]
         },
         {
-          "GUID": "eea531",
+          "GUID": "8009e2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8330,7 +8351,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Nokar",
+          "Nickname": "Nokar Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -8346,7 +8367,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -8367,7 +8388,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "be855d",
+              "GUID": "84be12",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8396,7 +8417,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8425,7 +8446,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "7c7b10",
+              "GUID": "1737cb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8454,7 +8475,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8485,7 +8506,7 @@
           ]
         },
         {
-          "GUID": "b37862",
+          "GUID": "c50e28",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8498,7 +8519,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Nomad",
+          "Nickname": "Nomad Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -8514,7 +8535,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -8535,7 +8556,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "844123",
+              "GUID": "725ee3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8564,7 +8585,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8593,7 +8614,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "75d6c2",
+              "GUID": "7c8d88",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8622,7 +8643,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8653,7 +8674,7 @@
           ]
         },
         {
-          "GUID": "245ddb",
+          "GUID": "0d0d42",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8666,7 +8687,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Olradin",
+          "Nickname": "Olradin Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -8682,7 +8703,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -8703,7 +8724,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e886bb",
+              "GUID": "a07a59",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8732,7 +8753,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8761,7 +8782,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "06a490",
+              "GUID": "f47661",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8790,7 +8811,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8821,7 +8842,7 @@
           ]
         },
         {
-          "GUID": "c0f453",
+          "GUID": "be7a24",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8834,7 +8855,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Pharad'n",
+          "Nickname": "Pharad'n Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -8850,7 +8871,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -8871,7 +8892,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "32d235",
+              "GUID": "293796",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8900,7 +8921,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8929,7 +8950,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "c2b137",
+              "GUID": "2acb7c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8958,7 +8979,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -8989,7 +9010,7 @@
           ]
         },
         {
-          "GUID": "dc2959",
+          "GUID": "e0e859",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9002,7 +9023,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Qhet",
+          "Nickname": "Qhet Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -9018,7 +9039,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -9039,7 +9060,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "592920",
+              "GUID": "48dd8a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9068,7 +9089,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9097,7 +9118,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "28a324",
+              "GUID": "6b9842",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9126,7 +9147,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9157,7 +9178,7 @@
           ]
         },
         {
-          "GUID": "86451c",
+          "GUID": "34f0a1",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9170,7 +9191,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Ral Nel",
+          "Nickname": "Ral Nel Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -9186,7 +9207,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -9207,7 +9228,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "1b5296",
+              "GUID": "e7a506",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9236,7 +9257,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9265,7 +9286,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b21d2f",
+              "GUID": "3c27fd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9294,7 +9315,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9325,7 +9346,7 @@
           ]
         },
         {
-          "GUID": "605a49",
+          "GUID": "424c4a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9338,7 +9359,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Rhodun",
+          "Nickname": "Rhodun Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -9354,7 +9375,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -9375,7 +9396,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "4a9ce0",
+              "GUID": "31a026",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9404,7 +9425,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9433,7 +9454,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "88ac29",
+              "GUID": "c93ffe",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9462,7 +9483,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9493,7 +9514,7 @@
           ]
         },
         {
-          "GUID": "d85e07",
+          "GUID": "b038f9",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9506,7 +9527,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Roh'Dhna",
+          "Nickname": "Roh'Dhna Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -9522,7 +9543,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -9543,7 +9564,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "555c0e",
+              "GUID": "27e716",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9572,7 +9593,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9601,7 +9622,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "91f42c",
+              "GUID": "d7a86d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9630,7 +9651,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9661,7 +9682,7 @@
           ]
         },
         {
-          "GUID": "ddfeaf",
+          "GUID": "2bf9b9",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9674,7 +9695,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Saar",
+          "Nickname": "Saar Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -9690,7 +9711,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -9711,7 +9732,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "71ca3f",
+              "GUID": "7194f5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9740,7 +9761,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9769,7 +9790,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "0f9847",
+              "GUID": "9e3e3c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9798,7 +9819,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9829,7 +9850,7 @@
           ]
         },
         {
-          "GUID": "97a5aa",
+          "GUID": "d02319",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9842,7 +9863,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Sarcosa",
+          "Nickname": "Sarcosa Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -9858,7 +9879,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -9879,7 +9900,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "6f6307",
+              "GUID": "adb4c1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9908,7 +9929,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9937,7 +9958,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "3117ac",
+              "GUID": "77dde9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9966,7 +9987,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -9997,7 +10018,7 @@
           ]
         },
         {
-          "GUID": "711113",
+          "GUID": "b14ba5",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10010,7 +10031,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Sardakk",
+          "Nickname": "Sardakk Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -10026,7 +10047,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -10047,7 +10068,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "1118a3",
+              "GUID": "7eb741",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10076,7 +10097,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10105,7 +10126,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e5d372",
+              "GUID": "6041dc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10134,7 +10155,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10165,7 +10186,7 @@
           ]
         },
         {
-          "GUID": "eb5701",
+          "GUID": "13866d",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10178,7 +10199,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Sol",
+          "Nickname": "Sol Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -10194,7 +10215,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -10215,7 +10236,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "cd1342",
+              "GUID": "3f61e1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10244,7 +10265,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10273,7 +10294,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b969ab",
+              "GUID": "e6a95c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10302,7 +10323,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10333,7 +10354,7 @@
           ]
         },
         {
-          "GUID": "41499a",
+          "GUID": "3a87b2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10346,7 +10367,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Titans",
+          "Nickname": "Titans Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -10362,7 +10383,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -10383,7 +10404,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "93419d",
+              "GUID": "e0872c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10412,7 +10433,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10441,7 +10462,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b28137",
+              "GUID": "27aa2d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10470,7 +10491,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10501,7 +10522,7 @@
           ]
         },
         {
-          "GUID": "373711",
+          "GUID": "8ca472",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10514,7 +10535,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Tnelis",
+          "Nickname": "Tnelis Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -10530,7 +10551,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -10551,7 +10572,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "8074b4",
+              "GUID": "051b34",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10580,7 +10601,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10609,7 +10630,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9e8186",
+              "GUID": "18e972",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10638,7 +10659,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10669,7 +10690,7 @@
           ]
         },
         {
-          "GUID": "3e2932",
+          "GUID": "07f8e3",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10682,7 +10703,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Toldar",
+          "Nickname": "Toldar Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -10698,7 +10719,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -10719,7 +10740,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "6301bb",
+              "GUID": "9a8de2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10748,7 +10769,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10777,7 +10798,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "042cb0",
+              "GUID": "ec35b3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10806,7 +10827,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10837,7 +10858,7 @@
           ]
         },
         {
-          "GUID": "316060",
+          "GUID": "dfd304",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10850,7 +10871,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Uydai",
+          "Nickname": "Uydai Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -10866,7 +10887,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -10887,7 +10908,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "45a43c",
+              "GUID": "e2240b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10916,7 +10937,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -10945,7 +10966,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "742091",
+              "GUID": "a99d5b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10974,7 +10995,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11005,7 +11026,7 @@
           ]
         },
         {
-          "GUID": "933224",
+          "GUID": "ea0742",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11018,7 +11039,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Vaden",
+          "Nickname": "Vaden Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -11034,7 +11055,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -11055,7 +11076,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "cb2980",
+              "GUID": "f10ed8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11084,7 +11105,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11113,7 +11134,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "a11131",
+              "GUID": "5f8939",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11142,7 +11163,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11173,7 +11194,7 @@
           ]
         },
         {
-          "GUID": "25df9c",
+          "GUID": "ec12cd",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11186,7 +11207,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Vaylerian",
+          "Nickname": "Vaylerian Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -11202,7 +11223,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -11223,7 +11244,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "2a288a",
+              "GUID": "40f612",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11252,7 +11273,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11281,7 +11302,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "7abc97",
+              "GUID": "559cf9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11310,7 +11331,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11341,7 +11362,7 @@
           ]
         },
         {
-          "GUID": "a2da7f",
+          "GUID": "35180f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11354,7 +11375,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Veldyr",
+          "Nickname": "Veldyr Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -11370,7 +11391,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -11391,7 +11412,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "94a4c1",
+              "GUID": "4d108a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11420,7 +11441,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11449,7 +11470,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "45e10d",
+              "GUID": "6e3be9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11478,7 +11499,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11509,7 +11530,7 @@
           ]
         },
         {
-          "GUID": "8ce771",
+          "GUID": "a32aa6",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11522,7 +11543,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Vuil'Raith",
+          "Nickname": "Vuil'Raith Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -11538,7 +11559,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -11559,7 +11580,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "a31be8",
+              "GUID": "7683cf",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11588,7 +11609,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11617,7 +11638,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "bc7669",
+              "GUID": "bb5863",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11646,7 +11667,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11675,7 +11696,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9b30cf",
+              "GUID": "5be926",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11704,7 +11725,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11735,7 +11756,7 @@
           ]
         },
         {
-          "GUID": "cf608c",
+          "GUID": "a502af",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11748,7 +11769,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Winnu",
+          "Nickname": "Winnu Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -11764,7 +11785,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -11785,7 +11806,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "b57a5f",
+              "GUID": "cd9f4d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11814,7 +11835,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11843,7 +11864,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b25692",
+              "GUID": "251c5e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11872,7 +11893,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11901,7 +11922,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "127281",
+              "GUID": "e3bfd5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11930,7 +11951,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -11961,7 +11982,7 @@
           ]
         },
         {
-          "GUID": "cec509",
+          "GUID": "9b8213",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11974,7 +11995,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Xin",
+          "Nickname": "Xin Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -11990,7 +12011,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -12011,7 +12032,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "6b86a9",
+              "GUID": "0b78ac",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12040,7 +12061,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12069,7 +12090,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b51ea3",
+              "GUID": "10c952",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12098,7 +12119,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12129,7 +12150,7 @@
           ]
         },
         {
-          "GUID": "3127a5",
+          "GUID": "c5e980",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12142,7 +12163,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Xxcha",
+          "Nickname": "Xxcha Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -12158,7 +12179,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -12179,7 +12200,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "24bbd9",
+              "GUID": "350f13",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12208,7 +12229,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12237,7 +12258,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d409b2",
+              "GUID": "711488",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12266,7 +12287,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12295,7 +12316,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f06b95",
+              "GUID": "c2d5ac",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12324,7 +12345,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12355,7 +12376,7 @@
           ]
         },
         {
-          "GUID": "8c4a9a",
+          "GUID": "f148b1",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12368,7 +12389,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Yin",
+          "Nickname": "Yin Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -12384,7 +12405,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -12405,7 +12426,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "36c826",
+              "GUID": "531f00",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12434,7 +12455,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12463,7 +12484,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "046353",
+              "GUID": "857ebd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12492,7 +12513,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12521,7 +12542,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "208ed0",
+              "GUID": "ba6521",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12550,7 +12571,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12581,7 +12602,7 @@
           ]
         },
         {
-          "GUID": "7ab19f",
+          "GUID": "827429",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12594,7 +12615,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Yssaril",
+          "Nickname": "Yssaril Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -12610,7 +12631,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -12631,7 +12652,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "70533e",
+              "GUID": "fada9c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12660,7 +12681,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12689,7 +12710,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "68d29f",
+              "GUID": "0f16ca",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12718,7 +12739,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12747,7 +12768,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "28df52",
+              "GUID": "65792b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12776,7 +12797,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12807,7 +12828,7 @@
           ]
         },
         {
-          "GUID": "1fada7",
+          "GUID": "0f53b7",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12820,7 +12841,7 @@
             "scaleY": 1.0,
             "scaleZ": 1.0
           },
-          "Nickname": "Zelian",
+          "Nickname": "Zelian Faction Tech Unlocks",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -12836,7 +12857,7 @@
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
-          "Grid": true,
+          "Grid": false,
           "Snap": true,
           "IgnoreFoW": false,
           "MeasureMovement": false,
@@ -12857,7 +12878,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "9c180d",
+              "GUID": "0c8c29",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12886,7 +12907,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,
@@ -12915,7 +12936,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "3db483",
+              "GUID": "8979cd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12944,7 +12965,7 @@
               "LayoutGroupSortIndex": 0,
               "Value": 0,
               "Locked": false,
-              "Grid": true,
+              "Grid": false,
               "Snap": true,
               "IgnoreFoW": false,
               "MeasureMovement": false,

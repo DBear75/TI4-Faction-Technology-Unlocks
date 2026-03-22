@@ -239,16 +239,16 @@ def build_tts_bag_by_faction(data, deck_image_urls):
 
     main_bag = {
         "GUID": tts_guid(),
-        "Name": "Bag",
+        "Name": "Custom_Model_Bag",
         "Transform": tts_transform(pos_x=0, pos_y=1.5, pos_z=0, rot_x=0, rot_y=0, rot_z=0),
         "Nickname": "Faction Technology Unlock Cards",
         "Description": "",
         "GMNotes": "",
         "AltLookAngle": {"x": 0.0, "y": 0.0, "z": 0.0},
         "ColorDiffuse": {
-            "r": 0.7058823,
-            "g": 0.366520882,
-            "b": 0.0
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
         },
         "LayoutGroupSortIndex": 0,
         "Value": 0,
@@ -266,6 +266,27 @@ def build_tts_bag_by_faction(data, deck_image_urls):
         "Hands": False,
         "MaterialIndex": -1,
         "MeshIndex": -1,
+        "Number": 0,
+        "CustomMesh": {
+            "MeshURL": "https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/Box.obj",
+            "DiffuseURL": "https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/box-img.png",
+            "NormalURL": "",
+            "ColliderURL": "",
+            "Convex": True,
+            "MaterialIndex": 0,
+            "TypeIndex": 6,
+            "CustomShader": {
+                "SpecularColor": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0
+                },
+                "SpecularIntensity": 0.1,
+                "SpecularSharpness": 7.0,
+                "FresnelStrength": 0.4
+                },
+            "CastShadows": True
+        },
         "Bag": {"Order": 0},
         "LuaScript": "",
         "LuaScriptState": "",
