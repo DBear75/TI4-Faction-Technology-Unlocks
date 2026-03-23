@@ -1,6 +1,6 @@
 {
   "SaveName": "Faction Technology Unlock Cards",
-  "Date": "03/22/2026 10:32:47 AM",
+  "Date": "03/22/2026 10:45:07 PM",
   "VersionNumber": "",
   "GameMode": "",
   "GameType": "",
@@ -17,7 +17,7 @@
   "XmlUI": "",
   "ObjectStates": [
     {
-      "GUID": "c57ffd",
+      "GUID": "bd18d3",
       "Name": "Custom_Model_Bag",
       "Transform": {
         "posX": 0.0,
@@ -83,12 +83,12 @@
       "Bag": {
         "Order": 0
       },
-      "LuaScript": "",
+      "LuaScript": "function getHelperClient(helperObjectName)\n    local function getHelperObject()\n        for _, object in ipairs(getAllObjects()) do\n            if object.getName() == helperObjectName then return object end\n        end\n        error('Missing object \"' .. helperObjectName .. '\"')\n    end\n\n    local helperObject = false\n    local function getCallWrapper(functionName)\n        helperObject = helperObject or getHelperObject()\n        if not helperObject.getVar(functionName) then error('Missing ' .. helperObjectName .. '.' .. functionName) end\n        return function(parameters) return helperObject.call(functionName, parameters) end\n    end\n\n    return setmetatable({}, { __index = function(t, k) return getCallWrapper(k) end })\nend\n\n_deckHelper = getHelperClient(\"TI4_DECK_HELPER\")\n\nfunction onLoad(saveState)\n    injectCards()\nend\n\nfunction injectCards()\n    local FactionTechnologyUnlockCards = {\n        ['Base'] = {\n            ['Bioplasmosis Research'] = { purge = true },\n            ['Letani Research'] = { purge = true },\n            ['Non-Euclidean Research'] = { purge = true },\n            ['L4 Research'] = { purge = true },\n            ['Chaos Research'] = { purge = true },\n            ['Factory Research'] = { purge = true },\n            ['Magmus Research'] = { purge = true },\n            ['War Sun Research'] = { purge = true },\n            ['Datahub Node Research'] = { purge = true },\n            ['Biomes Research'] = { purge = true },\n            ['Carrier Research'] = { purge = true },\n            ['Spec Ops Research'] = { purge = true },\n            ['Splicer Research'] = { purge = true },\n            ['Generator Research'] = { purge = true },\n            ['Inheritance Research'] = { purge = true },\n            ['Dreadnought Research'] = { purge = true },\n            ['Salvage Research'] = { purge = true },\n            ['Computing Research'] = { purge = true },\n            ['Hybrid Crystal Research'] = { purge = true },\n            ['Neuroglave Research'] = { purge = true },\n            ['Valkyrie Research'] = { purge = true },\n            ['Exotririem Research'] = { purge = true },\n            ['Spatial Conduit Research'] = { purge = true },\n            ['E-Ris Research'] = { purge = true },\n            ['Gate Folding Research'] = { purge = true },\n            ['Hegemonic Research'] = { purge = true },\n            ['Nullification Research'] = { purge = true },\n            ['Instinct Research'] = { purge = true },\n            ['Impulse Core Research'] = { purge = true },\n            ['Spinner Research'] = { purge = true },\n            ['Mageon Research'] = { purge = true },\n            ['Transparasteel Research'] = { purge = true },\n        },\n        ['PoK'] = {\n            ['Strike Wing Research'] = { purge = true },\n            ['Hololattice Research'] = { purge = true },\n            ['Aetherstream Research'] = { purge = true },\n            ['Voidwatch Research'] = { purge = true },\n            ['Legionnaire Research'] = { purge = true },\n            ['Genetic Research'] = { purge = true },\n            ['Supercharge Research'] = { purge = true },\n            ['Pre-Fab Research'] = { purge = true },\n            ['Memoria Research'] = { purge = true },\n            ['Temporality Research'] = { purge = true },\n            ['Hel Titan Research'] = { purge = true },\n            ['Saturn Engine Research'] = { purge = true },\n            ['Dimensional Research'] = { purge = true },\n            ['Vortex Research'] = { purge = true },\n        },\n        ['DS+'] = {\n            ['Broker Research'] = { purge = true },\n            ['Replicators Research'] = { purge = true },\n            ['Zhrgar Research'] = { purge = true },\n            ['Star Dragon Research'] = { purge = true },\n            ['Brood Research'] = { purge = true },\n            ['Chitin Research'] = { purge = true },\n            ['Unity Algorithm Research'] = { purge = true },\n            ['Encryption Research'] = { purge = true },\n            ['Command Research'] = { purge = true },\n            ['Production Research'] = { purge = true },\n            ['Lightning Drive Research'] = { purge = true },\n            ['Orion Research'] = { purge = true },\n            ['Indoctrination Research'] = { purge = true },\n            ['Vector Research'] = { purge = true },\n            ['Thrusters Research'] = { purge = true },\n            ['ATS Armaments Research'] = { purge = true },\n            ['Biothermics Research'] = { purge = true },\n            ['Omniscience Research'] = { purge = true },\n            ['Contracts Research'] = { purge = true },\n            ['Sabre Research'] = { purge = true },\n        },\n        ['TE'] = {\n            ['Modernization Research'] = { purge = true },\n            ['Supply Research'] = { purge = true },\n            ['Executive Research'] = { purge = true },\n            ['Subatomic Research'] = { purge = true },\n            ['Exile Research'] = { purge = true },\n            ['Radical Research'] = { purge = true },\n            ['Hydrothermal Research'] = { purge = true },\n            ['Plane Research'] = { purge = true },\n            ['Parasite Research'] = { purge = true },\n            ['Proxima Research'] = { purge = true },\n            ['Helios Research'] = { purge = true },\n            ['Linkship Research'] = { purge = true },\n            ['Nanomachines Research'] = { purge = true },\n        },\n        ['DS'] = {\n            ['Contractual Research'] = { purge = true },\n            ['Terrafactory Research'] = { purge = true },\n            ['Psychographics Research'] = { purge = true },\n            ['Sentience Research'] = { purge = true },\n            ['Mobilization Research'] = { purge = true },\n            ['Trade Port Research'] = { purge = true },\n            ['Aegis Research'] = { purge = true },\n            ['Impressment Research'] = { purge = true },\n            ['Blackmail Research'] = { purge = true },\n            ['Corsair Research'] = { purge = true },\n            ['Envoy Research'] = { purge = true },\n            ['Strike Team Research'] = { purge = true },\n            ['Transport Research'] = { purge = true },\n            ['War Song Research'] = { purge = true },\n            ['Fractal Research'] = { purge = true },\n            ['Fabrication Research'] = { purge = true },\n            ['Seeker Drone Research'] = { purge = true },\n            ['Shrouded Research'] = { purge = true },\n            ['Tempest Research'] = { purge = true },\n            ['Deliverance Research'] = { purge = true },\n            ['Stone Research'] = { purge = true },\n            ['Shattered Sky Research'] = { purge = true },\n            ['Wraith Engine Research'] = { purge = true },\n            ['Heavy Bomber Research'] = { purge = true },\n            ['Gauss Cannon Research'] = { purge = true },\n            ['Defense Grid Research'] = { purge = true },\n            ['Psychoactive Research'] = { purge = true },\n            ['Mycelium Research'] = { purge = true },\n            ['Voidwake Research'] = { purge = true },\n            ['Voidflare Research'] = { purge = true },\n            ['False Research'] = { purge = true },\n            ['Geosympathic Research'] = { purge = true },\n            ['Abomination Research'] = { purge = true },\n            ['Recursion Research'] = { purge = true },\n            ['Rift Research'] = { purge = true },\n            ['Deployment Research'] = { purge = true },\n            ['Daedalon Research'] = { purge = true },\n            ['Blockade Research'] = { purge = true },\n            ['Midas Turbine Research'] = { purge = true },\n            ['Krovoz Research'] = { purge = true },\n            ['Scavenger Research'] = { purge = true },\n            ['Raider Research'] = { purge = true },\n            ['SEIDR Research'] = { purge = true },\n            ['Lancer Research'] = { purge = true },\n            ['Santification Research'] = { purge = true },\n            ['Beacon Research'] = { purge = true },\n            ['Shard Volley Research'] = { purge = true },\n            ['Impactor Research'] = { purge = true },\n        },\n        ['New Dawn'] = {\n            ['Dragon Research'] = { purge = true },\n            ['Ahk Research'] = { purge = true },\n            ['War Sun Research'] = { purge = true },\n            ['Guild Agent Research'] = { purge = true },\n            ['Justice Research'] = { purge = true },\n            ['Morphwing Research'] = { purge = true },\n            ['Triune Research'] = { purge = true },\n            ['Saggitaria Research'] = { purge = true },\n            ['Clone Research'] = { purge = true },\n            ['Keeper Research'] = { purge = true },\n            ['Vortexer Research'] = { purge = true },\n            ['Dawncrusher Research'] = { purge = true },\n            ['Production Research'] = { purge = true },\n        },\n        ['BR'] = {\n            ['Mirrorshard Research'] = { purge = true },\n            ['Modular Research'] = { purge = true },\n            ['Wyvern Research'] = { purge = true },\n            ['Matrix Research'] = { purge = true },\n            ['Consulate Research'] = { purge = true },\n            ['Kaldur Research'] = { purge = true },\n            ['Immortal Research'] = { purge = true },\n            ['Reality-Field Research'] = { purge = true },\n            ['Commando Research'] = { purge = true },\n            ['Battlecruiser Research'] = { purge = true },\n            ['Ravager Research'] = { purge = true },\n            ['Infiltration Research'] = { purge = true },\n            ['Messiah Research'] = { purge = true },\n            ['Navigation Research'] = { purge = true },\n            ['Astromantic Research'] = { purge = true },\n            ['Veiled Research'] = { purge = true },\n            ['Emergency Research'] = { purge = true },\n            ['V.I.R. Research'] = { purge = true },\n        },\n    }\n\n    for expansion, cards in pairs(FactionTechnologyUnlockCards) do\n        for cardName, cardData in pairs(cards) do\n            local params = {\n                ['deckName'] = 'Faction Technology Unlock Cards',\n                ['cardName'] = cardName\n            }\n\n            if type(cardData) == \"table\" then\n                for k, v in pairs(cardData) do\n                    params[k] = v\n                end\n            end\n\n            _deckHelper.injectCard(params)\n        end\n    end\n\nend\n\nlocal _lockGlobalsMetaTable = {}\nfunction _lockGlobalsMetaTable.__index(table, key)\n    error('Accessing missing global \"' .. tostring(key or '<nil>') .. '\", typo?', 2)\nend\nfunction _lockGlobalsMetaTable.__newindex(table, key, value)\n    error('Globals are locked, cannot create global variable \"' .. tostring(key or '<nil>') .. '\"', 2)\nend\nsetmetatable(_G, _lockGlobalsMetaTable)",
       "LuaScriptState": "",
       "XmlUI": "",
       "ContainedObjects": [
         {
-          "GUID": "be5e24",
+          "GUID": "1913bf",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -138,7 +138,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "6cbf49",
+              "GUID": "f11838",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -196,7 +196,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "0ac6c3",
+              "GUID": "2a06bf",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -256,7 +256,7 @@
           ]
         },
         {
-          "GUID": "7aad6c",
+          "GUID": "4658bd",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -306,7 +306,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "b1c5b6",
+              "GUID": "059c0e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -364,7 +364,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "46d6b2",
+              "GUID": "25ce15",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -424,7 +424,7 @@
           ]
         },
         {
-          "GUID": "4e0284",
+          "GUID": "47e96e",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -474,7 +474,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "55560e",
+              "GUID": "87e102",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -532,7 +532,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "cf55fb",
+              "GUID": "7933fe",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -592,7 +592,7 @@
           ]
         },
         {
-          "GUID": "a0f938",
+          "GUID": "b43d2f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -642,7 +642,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0bcefb",
+              "GUID": "5620de",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -700,7 +700,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "557a7d",
+              "GUID": "248d5f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -760,7 +760,7 @@
           ]
         },
         {
-          "GUID": "b92c98",
+          "GUID": "6f3f8a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -810,7 +810,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "f72675",
+              "GUID": "e26ebc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -868,7 +868,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e59e8c",
+              "GUID": "358713",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -928,7 +928,7 @@
           ]
         },
         {
-          "GUID": "5debb5",
+          "GUID": "391b6e",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -978,7 +978,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "5228ff",
+              "GUID": "b9205f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1036,7 +1036,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "28a68e",
+              "GUID": "26068c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1096,7 +1096,7 @@
           ]
         },
         {
-          "GUID": "01113f",
+          "GUID": "1fcdd4",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1146,7 +1146,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "ce2f5f",
+              "GUID": "527900",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1204,7 +1204,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "4b31bf",
+              "GUID": "a670fb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1264,7 +1264,7 @@
           ]
         },
         {
-          "GUID": "28c6ae",
+          "GUID": "b57aeb",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1314,7 +1314,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d7ec3f",
+              "GUID": "50d863",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1372,7 +1372,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "039394",
+              "GUID": "9a969b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1432,7 +1432,7 @@
           ]
         },
         {
-          "GUID": "1d4a2c",
+          "GUID": "34bbd6",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1482,7 +1482,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "cea8e3",
+              "GUID": "f95de8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1540,7 +1540,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "84f371",
+              "GUID": "d964b0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1600,7 +1600,7 @@
           ]
         },
         {
-          "GUID": "01c80a",
+          "GUID": "216fc6",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1650,7 +1650,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0f7f0e",
+              "GUID": "46e392",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1708,7 +1708,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "24a1b3",
+              "GUID": "fe05a2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1768,7 +1768,7 @@
           ]
         },
         {
-          "GUID": "c39523",
+          "GUID": "25d58c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1818,7 +1818,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d94602",
+              "GUID": "be7a2b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1876,7 +1876,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f8c4e8",
+              "GUID": "e39f23",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -1936,7 +1936,7 @@
           ]
         },
         {
-          "GUID": "b5d9b4",
+          "GUID": "5e6d12",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -1986,7 +1986,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "277d8c",
+              "GUID": "ad9b6e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2044,7 +2044,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "05c274",
+              "GUID": "9cf8cc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2102,7 +2102,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "3580dc",
+              "GUID": "6497e5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2162,7 +2162,7 @@
           ]
         },
         {
-          "GUID": "1dd6c8",
+          "GUID": "97b8a8",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2212,7 +2212,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "7a764d",
+              "GUID": "f4d776",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2270,7 +2270,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "12e066",
+              "GUID": "ff083b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2330,7 +2330,7 @@
           ]
         },
         {
-          "GUID": "5c5f80",
+          "GUID": "c4527c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2380,7 +2380,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "435868",
+              "GUID": "6989d4",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2438,7 +2438,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "0f68a0",
+              "GUID": "be87d2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2498,7 +2498,7 @@
           ]
         },
         {
-          "GUID": "13b9b8",
+          "GUID": "5ecf56",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2548,7 +2548,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "123d1b",
+              "GUID": "f44272",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2606,7 +2606,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "bea038",
+              "GUID": "029126",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2666,7 +2666,7 @@
           ]
         },
         {
-          "GUID": "b2c066",
+          "GUID": "767ade",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2716,7 +2716,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "dd3a38",
+              "GUID": "024d59",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2774,7 +2774,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "ebe84a",
+              "GUID": "663e6e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2834,7 +2834,7 @@
           ]
         },
         {
-          "GUID": "fb0096",
+          "GUID": "8abaa8",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -2884,7 +2884,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0ae846",
+              "GUID": "bbc801",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -2942,7 +2942,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "81dd2a",
+              "GUID": "6cf1c2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3002,7 +3002,7 @@
           ]
         },
         {
-          "GUID": "061110",
+          "GUID": "4c001f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3052,7 +3052,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "c81901",
+              "GUID": "324af6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3110,7 +3110,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "602f99",
+              "GUID": "fafbad",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3168,7 +3168,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "a2b86b",
+              "GUID": "878c38",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3228,7 +3228,7 @@
           ]
         },
         {
-          "GUID": "7eabe4",
+          "GUID": "42351d",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3278,7 +3278,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "6a7d6f",
+              "GUID": "3b4968",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3336,7 +3336,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "5d3d5d",
+              "GUID": "5f18e5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3394,7 +3394,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "45ed16",
+              "GUID": "061a66",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3454,7 +3454,7 @@
           ]
         },
         {
-          "GUID": "3b1bc9",
+          "GUID": "0f41cd",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3504,7 +3504,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "db98b1",
+              "GUID": "8d1885",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3562,7 +3562,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "6fafbd",
+              "GUID": "64edcd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3622,7 +3622,7 @@
           ]
         },
         {
-          "GUID": "f638b3",
+          "GUID": "c56ac3",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3672,7 +3672,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "9c961a",
+              "GUID": "899ded",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3730,7 +3730,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f22311",
+              "GUID": "35c174",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3790,7 +3790,7 @@
           ]
         },
         {
-          "GUID": "4a7ab3",
+          "GUID": "e08c23",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -3840,7 +3840,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "b7eb4f",
+              "GUID": "4cc996",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3898,7 +3898,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "5dc617",
+              "GUID": "de3cca",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -3958,7 +3958,7 @@
           ]
         },
         {
-          "GUID": "621d0f",
+          "GUID": "016b5a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4008,7 +4008,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "15e889",
+              "GUID": "c28f9b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4066,7 +4066,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "52a8ff",
+              "GUID": "d4eabd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4126,7 +4126,7 @@
           ]
         },
         {
-          "GUID": "71ed2c",
+          "GUID": "53803b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4176,7 +4176,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "afa184",
+              "GUID": "a553d9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4234,7 +4234,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "914c98",
+              "GUID": "a2edf8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4294,7 +4294,7 @@
           ]
         },
         {
-          "GUID": "2c6d54",
+          "GUID": "f73256",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4344,7 +4344,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "747524",
+              "GUID": "4dbc80",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4402,7 +4402,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "85fffc",
+              "GUID": "4207d0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4462,7 +4462,7 @@
           ]
         },
         {
-          "GUID": "4e91fd",
+          "GUID": "72dc4c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4512,7 +4512,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d88a45",
+              "GUID": "f7f3ea",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4570,7 +4570,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "6d6442",
+              "GUID": "49d1cb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4628,7 +4628,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f69463",
+              "GUID": "38915b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4688,7 +4688,7 @@
           ]
         },
         {
-          "GUID": "c50d3b",
+          "GUID": "625d71",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4738,7 +4738,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "907060",
+              "GUID": "ef471a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4796,7 +4796,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "535aad",
+              "GUID": "74efa0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4854,7 +4854,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "7916f7",
+              "GUID": "4ce91e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -4914,7 +4914,7 @@
           ]
         },
         {
-          "GUID": "a4a4bd",
+          "GUID": "2aa3fe",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -4964,7 +4964,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d0573f",
+              "GUID": "4f2405",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5022,7 +5022,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "2d28fe",
+              "GUID": "640ac1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5082,7 +5082,7 @@
           ]
         },
         {
-          "GUID": "1169d0",
+          "GUID": "8e1493",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5132,7 +5132,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "a421d8",
+              "GUID": "d3f4b2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5190,7 +5190,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "73a46d",
+              "GUID": "5e006a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5248,7 +5248,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "2f0cf9",
+              "GUID": "fad406",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5306,7 +5306,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f03ecc",
+              "GUID": "ef8806",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5366,7 +5366,7 @@
           ]
         },
         {
-          "GUID": "0352e0",
+          "GUID": "07d36f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5416,7 +5416,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "beb4ef",
+              "GUID": "6b04c3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5474,7 +5474,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "8204e5",
+              "GUID": "e44b30",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5534,7 +5534,7 @@
           ]
         },
         {
-          "GUID": "82f6c8",
+          "GUID": "b7532b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5584,7 +5584,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "57a3cc",
+              "GUID": "cb71fd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5642,7 +5642,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "4553e6",
+              "GUID": "c2bdb7",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5702,7 +5702,7 @@
           ]
         },
         {
-          "GUID": "796daf",
+          "GUID": "3f5c6e",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5752,7 +5752,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "ee646e",
+              "GUID": "e4d8c8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5810,7 +5810,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "382746",
+              "GUID": "daeff6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5870,7 +5870,7 @@
           ]
         },
         {
-          "GUID": "c4e9f7",
+          "GUID": "43b32b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -5920,7 +5920,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "721d38",
+              "GUID": "c13c67",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -5978,7 +5978,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "627ce9",
+              "GUID": "0df4d6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6038,7 +6038,7 @@
           ]
         },
         {
-          "GUID": "df5ebb",
+          "GUID": "1ef62f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6088,7 +6088,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "d43675",
+              "GUID": "5018b1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6146,7 +6146,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9a05b9",
+              "GUID": "327282",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6206,7 +6206,7 @@
           ]
         },
         {
-          "GUID": "78aff2",
+          "GUID": "9e180d",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6256,7 +6256,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "336b63",
+              "GUID": "5844ec",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6314,7 +6314,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "0ca165",
+              "GUID": "894e46",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6374,7 +6374,7 @@
           ]
         },
         {
-          "GUID": "3aea80",
+          "GUID": "f3ca40",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6424,7 +6424,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "c485ed",
+              "GUID": "664652",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6482,7 +6482,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "61c98b",
+              "GUID": "f16447",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6540,7 +6540,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "6b0091",
+              "GUID": "17f0eb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6600,7 +6600,7 @@
           ]
         },
         {
-          "GUID": "e5fe9b",
+          "GUID": "4ef78f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6650,7 +6650,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "21f769",
+              "GUID": "6cb745",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6708,7 +6708,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9ffbf1",
+              "GUID": "a94009",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6768,7 +6768,7 @@
           ]
         },
         {
-          "GUID": "3df720",
+          "GUID": "45d537",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6818,7 +6818,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3e02ef",
+              "GUID": "0cb85f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6876,7 +6876,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f7ea56",
+              "GUID": "1438d6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -6936,7 +6936,7 @@
           ]
         },
         {
-          "GUID": "a65966",
+          "GUID": "68a9c2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -6986,7 +6986,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "ff05d7",
+              "GUID": "69adcc",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7044,7 +7044,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e4511a",
+              "GUID": "a97211",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7104,7 +7104,7 @@
           ]
         },
         {
-          "GUID": "543ec2",
+          "GUID": "23e22c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7154,7 +7154,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "f033aa",
+              "GUID": "519118",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7212,7 +7212,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "a223f1",
+              "GUID": "56fae0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7272,7 +7272,7 @@
           ]
         },
         {
-          "GUID": "98a4e2",
+          "GUID": "c0724c",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7322,7 +7322,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3ca13a",
+              "GUID": "f4e5b6",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7380,7 +7380,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "850022",
+              "GUID": "12ced2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7440,7 +7440,7 @@
           ]
         },
         {
-          "GUID": "ce7ee6",
+          "GUID": "818222",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7490,7 +7490,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "ab6aa9",
+              "GUID": "c1bbcd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7548,7 +7548,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "cd3ff9",
+              "GUID": "da0a70",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7608,7 +7608,7 @@
           ]
         },
         {
-          "GUID": "31b80b",
+          "GUID": "31f3a7",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7658,7 +7658,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "590ef0",
+              "GUID": "393a66",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7716,7 +7716,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "96acfd",
+              "GUID": "c0497c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7776,7 +7776,7 @@
           ]
         },
         {
-          "GUID": "555eb8",
+          "GUID": "4df92a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7826,7 +7826,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "2cf625",
+              "GUID": "2fe5b5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7884,7 +7884,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "0086dd",
+              "GUID": "8bf4dd",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -7944,7 +7944,7 @@
           ]
         },
         {
-          "GUID": "9501e7",
+          "GUID": "a0686d",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -7994,7 +7994,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0ff9a1",
+              "GUID": "b2a3a1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8052,7 +8052,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "4900ef",
+              "GUID": "5971ee",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8110,7 +8110,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "b1aec4",
+              "GUID": "2746b1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8170,7 +8170,7 @@
           ]
         },
         {
-          "GUID": "cb0592",
+          "GUID": "d80efd",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8220,7 +8220,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "9ef1ee",
+              "GUID": "8632f8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8278,7 +8278,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "538e91",
+              "GUID": "10e3a8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8338,7 +8338,7 @@
           ]
         },
         {
-          "GUID": "8009e2",
+          "GUID": "e04770",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8388,7 +8388,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "84be12",
+              "GUID": "fd22ec",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8446,7 +8446,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "1737cb",
+              "GUID": "bc4362",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8506,7 +8506,7 @@
           ]
         },
         {
-          "GUID": "c50e28",
+          "GUID": "594171",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8556,7 +8556,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "725ee3",
+              "GUID": "3c77a8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8614,7 +8614,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "7c8d88",
+              "GUID": "a6d7ba",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8674,7 +8674,7 @@
           ]
         },
         {
-          "GUID": "0d0d42",
+          "GUID": "8cc95a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8724,7 +8724,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "a07a59",
+              "GUID": "5638ad",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8782,7 +8782,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "f47661",
+              "GUID": "8bcd2e",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8842,7 +8842,7 @@
           ]
         },
         {
-          "GUID": "be7a24",
+          "GUID": "499291",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -8892,7 +8892,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "293796",
+              "GUID": "2adbab",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -8950,7 +8950,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "2acb7c",
+              "GUID": "057c4b",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9010,7 +9010,7 @@
           ]
         },
         {
-          "GUID": "e0e859",
+          "GUID": "35cd8b",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9060,7 +9060,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "48dd8a",
+              "GUID": "8033eb",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9118,7 +9118,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "6b9842",
+              "GUID": "bc3ab1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9178,7 +9178,7 @@
           ]
         },
         {
-          "GUID": "34f0a1",
+          "GUID": "01691f",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9228,7 +9228,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e7a506",
+              "GUID": "e5c6ae",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9286,7 +9286,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "3c27fd",
+              "GUID": "d61db8",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9346,7 +9346,7 @@
           ]
         },
         {
-          "GUID": "424c4a",
+          "GUID": "59fb94",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9396,7 +9396,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "31a026",
+              "GUID": "7608c9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9454,7 +9454,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "c93ffe",
+              "GUID": "28dd9d",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9514,7 +9514,7 @@
           ]
         },
         {
-          "GUID": "b038f9",
+          "GUID": "6c7945",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9564,7 +9564,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "27e716",
+              "GUID": "86005f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9622,7 +9622,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "d7a86d",
+              "GUID": "06a995",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9682,7 +9682,7 @@
           ]
         },
         {
-          "GUID": "2bf9b9",
+          "GUID": "5d3d68",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9732,7 +9732,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "7194f5",
+              "GUID": "faa953",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9790,7 +9790,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "9e3e3c",
+              "GUID": "0d86c2",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9850,7 +9850,7 @@
           ]
         },
         {
-          "GUID": "d02319",
+          "GUID": "59f08a",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -9900,7 +9900,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "adb4c1",
+              "GUID": "3f1320",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -9958,7 +9958,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "77dde9",
+              "GUID": "bff511",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10018,7 +10018,7 @@
           ]
         },
         {
-          "GUID": "b14ba5",
+          "GUID": "819724",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10068,7 +10068,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "7eb741",
+              "GUID": "b0acc1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10126,7 +10126,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "6041dc",
+              "GUID": "6f444f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10186,7 +10186,7 @@
           ]
         },
         {
-          "GUID": "13866d",
+          "GUID": "015538",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10236,7 +10236,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "3f61e1",
+              "GUID": "0231d4",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10294,7 +10294,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e6a95c",
+              "GUID": "addf81",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10354,7 +10354,7 @@
           ]
         },
         {
-          "GUID": "3a87b2",
+          "GUID": "9e8ea2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10404,7 +10404,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e0872c",
+              "GUID": "6e7d80",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10462,7 +10462,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "27aa2d",
+              "GUID": "edd070",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10522,7 +10522,7 @@
           ]
         },
         {
-          "GUID": "8ca472",
+          "GUID": "406938",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10572,7 +10572,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "051b34",
+              "GUID": "c3b805",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10630,7 +10630,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "18e972",
+              "GUID": "eb3610",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10690,7 +10690,7 @@
           ]
         },
         {
-          "GUID": "07f8e3",
+          "GUID": "339465",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10740,7 +10740,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "9a8de2",
+              "GUID": "a0d2a9",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10798,7 +10798,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "ec35b3",
+              "GUID": "af45a5",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10858,7 +10858,7 @@
           ]
         },
         {
-          "GUID": "dfd304",
+          "GUID": "f1c8bc",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -10908,7 +10908,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "e2240b",
+              "GUID": "e6589a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -10966,7 +10966,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "a99d5b",
+              "GUID": "97399a",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11026,7 +11026,7 @@
           ]
         },
         {
-          "GUID": "ea0742",
+          "GUID": "0f0ad1",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11076,7 +11076,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "f10ed8",
+              "GUID": "c0be32",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11134,7 +11134,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "5f8939",
+              "GUID": "989a64",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11194,7 +11194,7 @@
           ]
         },
         {
-          "GUID": "ec12cd",
+          "GUID": "879d30",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11244,7 +11244,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "40f612",
+              "GUID": "dded63",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11302,7 +11302,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "559cf9",
+              "GUID": "dfe119",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11362,7 +11362,7 @@
           ]
         },
         {
-          "GUID": "35180f",
+          "GUID": "d32e86",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11412,7 +11412,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "4d108a",
+              "GUID": "075bb7",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11470,7 +11470,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "6e3be9",
+              "GUID": "1fcd10",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11530,7 +11530,7 @@
           ]
         },
         {
-          "GUID": "a32aa6",
+          "GUID": "3c43b1",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11580,7 +11580,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "7683cf",
+              "GUID": "800132",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11638,7 +11638,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "bb5863",
+              "GUID": "af60ec",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11696,7 +11696,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "5be926",
+              "GUID": "d7f27f",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11756,7 +11756,7 @@
           ]
         },
         {
-          "GUID": "a502af",
+          "GUID": "bddbc5",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -11806,7 +11806,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "cd9f4d",
+              "GUID": "d46f03",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11864,7 +11864,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "251c5e",
+              "GUID": "550bd7",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11922,7 +11922,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "e3bfd5",
+              "GUID": "0d1bf1",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -11982,7 +11982,7 @@
           ]
         },
         {
-          "GUID": "9b8213",
+          "GUID": "27f2e1",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12032,7 +12032,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0b78ac",
+              "GUID": "97214c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12090,7 +12090,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "10c952",
+              "GUID": "48ae66",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12150,7 +12150,7 @@
           ]
         },
         {
-          "GUID": "c5e980",
+          "GUID": "9347c2",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12200,7 +12200,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "350f13",
+              "GUID": "75b261",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12258,7 +12258,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "711488",
+              "GUID": "2b5325",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12316,7 +12316,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "c2d5ac",
+              "GUID": "a56462",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12376,7 +12376,7 @@
           ]
         },
         {
-          "GUID": "f148b1",
+          "GUID": "fd4dae",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12426,7 +12426,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "531f00",
+              "GUID": "8da01c",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12484,7 +12484,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "857ebd",
+              "GUID": "062cec",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12542,7 +12542,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "ba6521",
+              "GUID": "dd31bf",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12602,7 +12602,7 @@
           ]
         },
         {
-          "GUID": "827429",
+          "GUID": "9c979e",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12652,7 +12652,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "fada9c",
+              "GUID": "d2ecff",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12710,7 +12710,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "0f16ca",
+              "GUID": "7e9749",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12768,7 +12768,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "65792b",
+              "GUID": "2b26a0",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12828,7 +12828,7 @@
           ]
         },
         {
-          "GUID": "0f53b7",
+          "GUID": "8d7175",
           "Name": "Bag",
           "Transform": {
             "posX": 0.0,
@@ -12878,7 +12878,7 @@
           "XmlUI": "",
           "ContainedObjects": [
             {
-              "GUID": "0c8c29",
+              "GUID": "8bec14",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,
@@ -12936,7 +12936,7 @@
               "XmlUI": ""
             },
             {
-              "GUID": "8979cd",
+              "GUID": "b1a1d3",
               "Name": "Card",
               "Transform": {
                 "posX": 0.0,

@@ -16,6 +16,46 @@ from urllib.parse import quote
 
 _EPS = 1e-12
 
+def lua_escape_string(s: str) -> str:
+    return str(s).replace("\\", "\\\\").replace("'", "\\'")
+
+
+def build_lua_cardnames_block(data, group_field="Expansion", name_field="Title"):
+    """
+    Builds:
+        ['PoK'] = {
+            ['Card Name'] = { purge = true },
+            ...
+        },
+    """
+    lines = []
+
+    for group_name in data[group_field].dropna().unique():
+        group_rows = data[data[group_field] == group_name]
+        print(f"Building Lua block for group '{group_name}' with {len(group_rows)} cards...")
+        lines.append(f"        ['{lua_escape_string(group_name)}'] = {{")
+
+        for _, row in group_rows.iterrows():
+            card_name = lua_escape_string(row[name_field])
+            lines.append(f"            ['{card_name}'] = {{ purge = true }},")
+        lines.append("        },")
+
+    return "\n".join(lines)
+
+
+def build_lua_injection_script_from_template(template_path, data, group_field="Expansion", name_field="Title"):
+    with open(template_path, "r", encoding="utf-8") as f:
+        template = f.read()
+
+    card_names_block = build_lua_cardnames_block(
+        data,
+        group_field=group_field,
+        name_field=name_field,
+    )
+
+    return template.replace("__CARD_NAMES_BLOCK__", card_names_block)
+
+
 def tts_guid():
     """TTS GUIDs are 6 hex chars in most save files."""
     return uuid.uuid4().hex[:6]
@@ -60,6 +100,7 @@ def tts_color(r=0.713, g=0.713, b=0.713):
 
 def encode_url_path_component(name: str) -> str:
     return quote(name, safe="._-")
+
 
 
 def build_expansion_card_index_map(data):
@@ -224,6 +265,8 @@ def build_faction_bag_object(
 def build_tts_bag_by_faction(data, deck_image_urls):
     expansion_index_map, expansion_sheet_sizes = build_expansion_card_index_map(data)
 
+    card_definitions = {}
+
     faction_bags = []
     for faction in sorted(data["Faction"].unique()):
         faction_rows = data[data["Faction"] == faction].reset_index(drop=True)
@@ -236,6 +279,13 @@ def build_tts_bag_by_faction(data, deck_image_urls):
                 deck_image_urls=deck_image_urls,
             )
         )
+
+    lua_script_text = build_lua_injection_script_from_template(
+        "inject_tech_unlocks_template.lua",
+        data,
+        group_field="Expansion",
+        name_field="Title",
+    )
 
     main_bag = {
         "GUID": tts_guid(),
@@ -288,7 +338,7 @@ def build_tts_bag_by_faction(data, deck_image_urls):
             "CastShadows": True
         },
         "Bag": {"Order": 0},
-        "LuaScript": "",
+        "LuaScript": lua_script_text,
         "LuaScriptState": "",
         "XmlUI": "",
         "ContainedObjects": faction_bags
