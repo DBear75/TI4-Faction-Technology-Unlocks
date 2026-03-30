@@ -144,7 +144,10 @@ def build_deck_image_urls(expansions):
     return deck_image_urls
 
 
-def build_tts_card_object(row, card_id, custom_deck_key, deck_entry):
+def build_tts_card_object(row, card_id, custom_deck_key, deck_entry, template_path="card-script.lua"):
+    with open(template_path, "r") as f:
+        lua_script_text = f.read()
+
     return {
         "GUID": tts_guid(),
         "Name": "Card",
@@ -173,7 +176,7 @@ def build_tts_card_object(row, card_id, custom_deck_key, deck_entry):
         "CustomDeck": {
             str(custom_deck_key): deck_entry
         },
-        "LuaScript": "",
+        "LuaScript": lua_script_text,
         "LuaScriptState": "",
         "XmlUI": ""
     }
@@ -184,7 +187,7 @@ def build_faction_bag_object(
     faction_rows,
     expansion_index_map,
     expansion_sheet_sizes,
-    deck_image_urls,
+    deck_image_urls
 ):
     contained_cards = []
 
@@ -215,7 +218,8 @@ def build_faction_bag_object(
             "NumHeight": expansion_sheet_sizes[expansion]["NumHeight"],
             "BackIsHidden": True,
             "UniqueBack": True,
-            "Type": 0
+            "Type": 0,
+            "LuaScript": "",
         }
 
         contained_cards.append(
