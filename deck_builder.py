@@ -129,7 +129,7 @@ def build_expansion_card_index_map(data):
 
 def build_deck_image_urls(expansions):
     deck_image_url_prefix = (
-        "https://raw.githubusercontent.com/DBear75/"
+        "{verifycache}https://raw.githubusercontent.com/DBear75/"
         "TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files"
     )
 
@@ -322,8 +322,8 @@ def build_tts_bag_by_faction(data, deck_image_urls):
         "MeshIndex": -1,
         "Number": 0,
         "CustomMesh": {
-            "MeshURL": "https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/Box.obj",
-            "DiffuseURL": "https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/box-img.png",
+            "MeshURL": "{verifycache}https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/Box.obj",
+            "DiffuseURL": "{verifycache}https://raw.githubusercontent.com/DBear75/TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files/Models/box-img.png",
             "NormalURL": "",
             "ColliderURL": "",
             "Convex": True,
@@ -894,9 +894,11 @@ def main():
 
     parser.add_argument("--clean-build", action='store_true', default=False, help="Delete all generated images before generating new ones.")
 
-    parser.add_argument("--tts-mode", action='store_true', default=False)
+    parser.add_argument("--tts-mode", action='store_true', default=False, help="Whether to generate cards for Tabletop Simulator (TTS) mode.")
 
     parser.add_argument("--faction-displays", action='store_true', default=False, help="Generate combined faction display images in addition to individual cards.")
+
+    parser.add_argument("--update-tts-files", action='store_true', default=False, help="Whether to update the TTS JSON files with new card IDs and deck URLs. Implies --tts-mode.")
 
     args = parser.parse_args()
 
@@ -1119,14 +1121,21 @@ def main():
 
             combined_front.save(f"{generated_images_loc}/decks/{expansion}_deck_front.jpg", quality=50)
             combined_back.save(f"{generated_images_loc}/decks/{expansion}_deck_back.jpg", quality=50)
+
+            if args.update_tts_files:
+                combined_front.save(f"TTS-Files/deck-front-imgs/{expansion}_deck_front.jpg", quality=50)
+                combined_back.save(f"TTS-Files/deck-back-imgs/{expansion}_deck_back.jpg", quality=50)
         
         deck_made = time.time()
         print(f"Deck generation completed in {deck_made - deck_build_start_time:.2f} seconds.")
 
+    if args.update_tts_files:
+
         deck_image_urls = build_deck_image_urls(expansions)
         tts_save = build_tts_bag_by_faction(data, deck_image_urls)
 
-        tts_json_path = os.path.join("TTS-Files/Objects", "tts_faction_technology_unlocks.json")
+
+        tts_json_path = os.path.join("TTS-Files/Objects", f"tts_faction_technology_unlocks.json")
         with open(tts_json_path, "w", encoding="utf-8") as f:
             json.dump(tts_save, f, indent=2)
 
