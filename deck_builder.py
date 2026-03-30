@@ -127,18 +127,13 @@ def build_expansion_card_index_map(data):
     return expansion_index_map, expansion_sheet_sizes
 
 
-def build_deck_image_urls(expansions):
-    deck_image_url_prefix = (
-        "{verifycache}https://raw.githubusercontent.com/DBear75/"
-        "TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files"
-    )
-
+def build_deck_image_urls(expansions, deck_image_url_prefix, time_stamp):
     deck_image_urls = {}
     for expansion in expansions:
         safe_expansion = encode_url_path_component(expansion)
         deck_image_urls[expansion] = {
-            "front": f"{deck_image_url_prefix}/deck-front-imgs/{safe_expansion}_deck_front.jpg",
-            "back": f"{deck_image_url_prefix}/deck-back-imgs/{safe_expansion}_deck_back.jpg",
+            "front": f"{deck_image_url_prefix}/deck-front-imgs/{safe_expansion}_deck_front_{time_stamp}.jpg",
+            "back": f"{deck_image_url_prefix}/deck-back-imgs/{safe_expansion}_deck_back_{time_stamp}.jpg",
         }
 
     return deck_image_urls
@@ -908,6 +903,16 @@ def main():
             print("Warning: --clean-build cannot be used with --deck-only. Clean build will be skipped.")
             args.clean_build = False
 
+    if args.update_tts_files:
+        time_stamp = datetime.now().strftime("%Y-%m-%d%H_%M_%S")
+        # Delete old TTS files if they exist
+        if os.path.exists("TTS-Files/faction-technology-unlocks.json"):
+            os.remove("TTS-Files/faction-technology-unlocks.json")
+            shutil.rmtree("TTS-Files/deck-front-imgs", ignore_errors=True)
+            shutil.rmtree("TTS-Files/deck-back-imgs", ignore_errors=True)
+            os.makedirs("TTS-Files/deck-front-imgs", exist_ok=True)
+            os.makedirs("TTS-Files/deck-back-imgs", exist_ok=True)
+
     # Read the input CSV file
     data = pd.read_csv(args.input_file)
 
@@ -1123,15 +1128,19 @@ def main():
             combined_back.save(f"{generated_images_loc}/decks/{expansion}_deck_back.jpg", quality=50)
 
             if args.update_tts_files:
-                combined_front.save(f"TTS-Files/deck-front-imgs/{expansion}_deck_front.jpg", quality=50)
-                combined_back.save(f"TTS-Files/deck-back-imgs/{expansion}_deck_back.jpg", quality=50)
+                combined_front.save(f"TTS-Files/deck-front-imgs/{expansion}_deck_front_{time_stamp}.jpg", quality=50)
+                combined_back.save(f"TTS-Files/deck-back-imgs/{expansion}_deck_back_{time_stamp}.jpg", quality=50)
         
         deck_made = time.time()
         print(f"Deck generation completed in {deck_made - deck_build_start_time:.2f} seconds.")
 
     if args.update_tts_files:
+        deck_image_url_prefix = (
+            "{verifycache}https://raw.githubusercontent.com/DBear75/"
+            "TI4-Faction-Technology-Unlocks/refs/heads/master/TTS-Files"
+        )
 
-        deck_image_urls = build_deck_image_urls(expansions)
+        deck_image_urls = build_deck_image_urls(expansions, deck_image_url_prefix, time_stamp)
         tts_save = build_tts_bag_by_faction(data, deck_image_urls)
 
 
