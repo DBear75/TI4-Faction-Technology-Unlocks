@@ -904,14 +904,11 @@ def main():
             args.clean_build = False
 
     if args.update_tts_files:
-        time_stamp = datetime.now().strftime("%Y-%m-%d%H_%M_%S")
-        # Delete old TTS files if they exist
-        if os.path.exists("TTS-Files/faction-technology-unlocks.json"):
-            os.remove("TTS-Files/faction-technology-unlocks.json")
-            shutil.rmtree("TTS-Files/deck-front-imgs", ignore_errors=True)
-            shutil.rmtree("TTS-Files/deck-back-imgs", ignore_errors=True)
-            os.makedirs("TTS-Files/deck-front-imgs", exist_ok=True)
-            os.makedirs("TTS-Files/deck-back-imgs", exist_ok=True)
+        time_stamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        shutil.rmtree("TTS-Files/deck-front-imgs", ignore_errors=True)
+        shutil.rmtree("TTS-Files/deck-back-imgs", ignore_errors=True)
+        os.makedirs("TTS-Files/deck-front-imgs", exist_ok=True)
+        os.makedirs("TTS-Files/deck-back-imgs", exist_ok=True)
 
     # Read the input CSV file
     data = pd.read_csv(args.input_file)
