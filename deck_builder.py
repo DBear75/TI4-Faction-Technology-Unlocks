@@ -522,7 +522,8 @@ highlight_terms = {
     "CANNON",
     "ANTI-FIGHTER",
     "BARRAGE",
-    "BOMBARDMENT"
+    "BOMBARDMENT",
+    "DEPLOY"
 }
 
 def wrap_text_by_pixel(text, font, max_width, draw, highlight_terms=None):
