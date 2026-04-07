@@ -695,6 +695,11 @@ def draw_gradient_text(
 
     base_image.paste(grad_img, (paste_x, paste_y), mask)
 
+def values_equal(a, b):
+    if (pd.isna(a) or a == "") and (pd.isna(b) or b == ""):
+        return True
+    return a == b
+
 def make_cards(
     data,
     front_background,
@@ -925,7 +930,6 @@ def main():
         
     if args.clean_build and os.path.exists(generated_images_loc):
         shutil.rmtree(generated_images_loc)
-    
     elif not os.path.exists(f"{generated_images_loc}"):
         os.makedirs(f"{generated_images_loc}")
 
@@ -938,6 +942,24 @@ def main():
         if not os.path.exists(f"{generated_images_loc}/{expansion}/backs"):
             # Create the backs folder
             os.makedirs(f"{generated_images_loc}/{expansion}/backs")
+
+        script_changed = False
+
+    # Check if deck_builder.py exists in the generatedFiles folder, and if not, copy it from the current directory.
+    if not os.path.exists(f"{generated_images_loc}/deck_builder.py"):
+        shutil.copy("deck_builder.py", f"{generated_images_loc}/deck_builder.py")
+        script_changed = True
+    else:
+        # If it does exist, check if the contents are the same as the current deck_builder.py, and if not, overwrite it and print a warning.
+        with open("deck_builder.py", "r") as f:
+            current_script = f.read()
+        with open(f"{generated_images_loc}/deck_builder.py", "r") as f:
+            existing_script = f.read()
+        if current_script != existing_script:
+            shutil.copy("deck_builder.py", f"{generated_images_loc}/deck_builder.py")
+            print("Warning: deck_builder.py has changed since the last run. The new script has been copied to the generatedFiles folder.")
+            script_changed = True
+
     if args.gamecrafter:
         front_background = Image.open("backgrounds/front-gamecrafter.png")
         back_background = Image.open("backgrounds/back-gamecrafter.png")
@@ -1009,33 +1031,108 @@ def main():
     if not args.deck_only:
         max_workers = min(max(1, cpu_count() - 2), data.shape[0]//16)
         print(f"Using {max_workers} workers for parallel card generation...")
+        # Check each row in data and remove it if unchanged since last run by comparing data to previous unlocks.csv file
+        # in generatedFiles folder, and if the row is unchanged, skip it for card generation to save time.
+        # Get all headers from the current data
+        headers = data.columns.tolist()
+        data_copy = data.copy()  # To avoid SettingWithCopyWarning when dropping rows
+
+        if script_changed:
+            print("Warning: The deck building script has changed since the last run. All cards will be regenerated regardless of changes in the data.")
+        elif os.path.exists(f"{generated_images_loc}/previous_unlocks.csv"):
+            previous_data = pd.read_csv(f"{generated_images_loc}/previous_unlocks.csv")
+
+            rows_to_drop = []
+
+            # Build lookup by Title
+            previous_lookup = {}
+            for _, prev_row in previous_data.iterrows():
+                previous_lookup[prev_row["Title"]] = prev_row
+
+            previous_headers = previous_data.columns.tolist()
+            header_set_changed = headers != previous_headers
+
+            if header_set_changed:
+                print("Warning: Headers have changed since last run. Matching rows will be checked against missing/new columns and regenerated if needed.")
+
+            for row in data.itertuples():
+                row_changed = False
+                title = row.Title
+
+                # New card: not present before
+                if title not in previous_lookup:
+                    row_changed = True
+                    print(f"{title}: new card, will be regenerated.")
+                else:
+                    prev_row = previous_lookup[title]
+
+                    # Compare across union of headers so new/removed columns count as a change
+                    all_headers = sorted(set(headers) | set(previous_headers))
+
+                    for header in all_headers:
+                        a = data.at[row.Index, header] if header in data.columns else pd.NA
+                        b = prev_row[header] if header in previous_data.columns else pd.NA
+
+                        if not values_equal(a, b):
+                            row_changed = True
+                            print(f"{title}: changed in column '{header}', will be regenerated.")
+                            print(f"{a} != {b}")
+                            break
+
+                card_file_exists = os.path.exists(
+                    f"{generated_images_loc}/{row.Expansion}/fronts/{row.Faction.lower()}_{row.Title}-front.png"
+                )
+                card_file_exists = card_file_exists and os.path.exists(
+                    f"{generated_images_loc}/{row.Expansion}/backs/{row.Faction.lower()}_{row.Title}-back.png"
+                )
+
+                # Skip only unchanged cards whose images already exist
+                if not row_changed and card_file_exists:
+                    rows_to_drop.append(row.Index)
+
+            if rows_to_drop:
+                data_copy.drop(rows_to_drop, inplace=True)
+
+        else:
+            print(f"Previous unlocks file not found at {generated_images_loc}/previous_unlocks.csv. All cards will be generated.")
+
+        # Save the current data to previous_unlocks.csv for future comparison
+        shutil.copy(args.input_file, f"{generated_images_loc}/previous_unlocks.csv")
+
+        if data_copy.shape[0] < 16:
+            print(f"Only {data_copy.shape[0]} cards need to be generated. Parallel generation will be skipped.")
+            max_workers = 1
+
         # Split data into chunks for each worker
-        indices = np.array_split(data.index, max_workers)
-        data_chunks = [data.loc[idx] for idx in indices]
+        indices = np.array_split(data_copy.index, max_workers)
+        data_chunks = [data_copy.loc[idx] for idx in indices]
 
-        with ProcessPoolExecutor(max_workers=max_workers) as executor:
-            futures = []
-            for chunk in data_chunks:
-                futures.append(executor.submit(
-                    make_cards,
-                    chunk,
-                    front_background,
-                    back_background,
-                    color_maps,
-                    faction_symbols,
-                    font_header,
-                    font_body,
-                    font_unlock,
-                    font_special,
-                    highlight_terms,
-                    header_font_size,
-                    body_font_size,
-                    args.gamecrafter
-                ))
+        if data_copy.shape[0] != 0:
+            with ProcessPoolExecutor(max_workers=max_workers) as executor:
+                futures = []
+                for chunk in data_chunks:
+                    futures.append(executor.submit(
+                        make_cards,
+                        chunk,
+                        front_background,
+                        back_background,
+                        color_maps,
+                        faction_symbols,
+                        font_header,
+                        font_body,
+                        font_unlock,
+                        font_special,
+                        highlight_terms,
+                        header_font_size,
+                        body_font_size,
+                        args.gamecrafter
+                    ))
 
-            # Wait for all workers to finish
-            for future in futures:
-                future.result()
+                # Wait for all workers to finish
+                for future in futures:
+                    future.result()
+        else:
+            print("No cards need to be generated. All cards are up to date with the previous run.")
         
         # End Timer
         card_made = time.time()
