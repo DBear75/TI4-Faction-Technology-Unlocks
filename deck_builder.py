@@ -1062,7 +1062,6 @@ def main():
                 # New card: not present before
                 if title not in previous_lookup:
                     row_changed = True
-                    print(f"{title}: new card, will be regenerated.")
                 else:
                     prev_row = previous_lookup[title]
 
@@ -1075,8 +1074,6 @@ def main():
 
                         if not values_equal(a, b):
                             row_changed = True
-                            print(f"{title}: changed in column '{header}', will be regenerated.")
-                            print(f"{a} != {b}")
                             break
 
                 card_file_exists = os.path.exists(
