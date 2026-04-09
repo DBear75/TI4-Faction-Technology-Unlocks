@@ -806,19 +806,19 @@ def make_cards(
         back_image = apply_hsl_color_overlay(back_image, color_maps[faction]['card'])
         back_image = apply_hsl_color_overlay(back_image, color_maps[faction]['starfield'])
 
-        # Paste the faction symbol in the bottom left corner of the back
+        # Paste the faction symbol in the bottom left corner of the front
         if faction.lower() in faction_symbols:
             symbol = faction_symbols[faction.lower()]
             symbol = symbol.resize((faction_symbol_size, faction_symbol_size), Image.LANCZOS)
             x_loc = card_image.width - symbol.width//2 - edge_distance
             y_loc = card_image.height - symbol.height//2 - edge_distance
-            card_image.paste(
+            back_image.paste(
                 symbol, 
                 (x_loc, y_loc),
                 symbol
             )
             x_loc = - symbol.width//2 + edge_distance
-            back_image.paste(
+            card_image.paste(
                 symbol, 
                 (x_loc, y_loc),
                 symbol
@@ -831,33 +831,33 @@ def make_cards(
         tech_unlock_icon_resized = tech_unlock_icon.resize((tech_unlock_icon_size, tech_unlock_icon_size), Image.LANCZOS)
         x_loc = tech_unlock_icon_edge_distance
         y_loc = card_image.height - tech_unlock_icon_resized.height - tech_unlock_icon_edge_distance
-        card_image.paste(
-            tech_unlock_icon_resized, 
+        back_image.paste(
+            tech_unlock_icon_resized,
             (x_loc, y_loc),
             tech_unlock_icon_resized
         )
         if os.path.exists(f"expansion-icons/{expansion}.png"):
             expansion_icon = Image.open(f"expansion-icons/{expansion}.png").convert("RGBA")
             expansion_icon_resized = expansion_icon.resize((tech_unlock_icon_size, tech_unlock_icon_size), Image.LANCZOS)
-            card_image.paste(
+            back_image.paste(
                 expansion_icon_resized, 
                 (x_loc+int(tech_unlock_icon_resized.width*1.1), y_loc),
                 expansion_icon_resized
             )
             x_loc = card_image.width - tech_unlock_icon_resized.width - tech_unlock_icon_edge_distance
-            back_image.paste(
+            card_image.paste(
                 expansion_icon_resized, 
                 (x_loc, y_loc),
                 expansion_icon_resized
             )
-            back_image.paste(
+            card_image.paste(
                 tech_unlock_icon_resized, 
                 (x_loc-int(tech_unlock_icon_resized.width*1.1), y_loc),
                 tech_unlock_icon_resized
             )
         else:
             x_loc = card_image.width - tech_unlock_icon_resized.width - tech_unlock_icon_edge_distance
-            back_image.paste(
+            card_image.paste(
                 tech_unlock_icon_resized, 
                 (x_loc, y_loc),
                 tech_unlock_icon_resized
