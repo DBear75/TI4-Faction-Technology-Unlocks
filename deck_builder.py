@@ -597,7 +597,8 @@ def draw_mixed_font_line(
             "CANNON",
             "ANTI-FIGHTER",
             "BARRAGE",
-            "BOMBARDMENT"
+            "BOMBARDMENT",
+            "DEPLOY"
         }
 
     words = line.split()
@@ -625,7 +626,7 @@ def draw_mixed_font_line(
                     i += span
                     matched = True
                     break
-                elif phrase == "UNLOCK:":
+                elif phrase == "UNLOCK:" or phrase == "ACTION:":
                     draw.text((x_cursor, y), phrase, font=font_unlock, fill=font_color)
                     x_cursor += draw.textlength(phrase + " ", font=font_unlock)
                     i += span
@@ -1069,12 +1070,13 @@ def main():
                     all_headers = sorted(set(headers) | set(previous_headers))
 
                     for header in all_headers:
-                        a = data.at[row.Index, header] if header in data.columns else pd.NA
-                        b = prev_row[header] if header in previous_data.columns else pd.NA
+                        if header in previous_headers:
+                            a = data.at[row.Index, header] if header in data.columns else pd.NA
+                            b = prev_row[header] if header in previous_data.columns else pd.NA
 
-                        if not values_equal(a, b):
-                            row_changed = True
-                            break
+                            if not values_equal(a, b):
+                                row_changed = True
+                                break
 
                 card_file_exists = os.path.exists(
                     f"{generated_images_loc}/{row.Expansion}/fronts/{row.Faction.lower()}_{row.Title}-front.png"
