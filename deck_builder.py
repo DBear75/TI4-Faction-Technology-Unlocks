@@ -2,9 +2,7 @@ import argparse
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
 import os
-import textwrap
 import numpy as np
-import sys
 from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import cpu_count
 import time
