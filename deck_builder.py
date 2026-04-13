@@ -521,7 +521,8 @@ highlight_terms = {
     "ANTI-FIGHTER",
     "BARRAGE",
     "BOMBARDMENT",
-    "DEPLOY"
+    "DEPLOY",
+    "PRODUCTION"
 }
 
 def wrap_text_by_pixel(text, font, max_width, draw, highlight_terms=None):
@@ -596,7 +597,8 @@ def draw_mixed_font_line(
             "ANTI-FIGHTER",
             "BARRAGE",
             "BOMBARDMENT",
-            "DEPLOY"
+            "DEPLOY",
+            "PRODUCTION",
         }
 
     words = line.split()
