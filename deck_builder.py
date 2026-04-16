@@ -515,7 +515,7 @@ def apply_hsl_color_overlay(
 
 
 def check_highlight(word):
-    exempt_words = {"PDS", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "SEIDR"}
+    exempt_words = {"PDS", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "SEIDR", "ATS"}
     # Add doesn't contain a number
     return word.upper() == word and len(word) > 1 and not any(char.isdigit() for char in word) and word not in exempt_words
 
