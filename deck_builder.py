@@ -513,41 +513,16 @@ def apply_hsl_color_overlay(
 
     return Image.fromarray(np.round(out * 255.0).astype(np.uint8), mode="RGBA")
 
-highlight_terms = {
-    "SUSTAIN",
-    "DAMAGE",
-    "SPACE",
-    "CANNON",
-    "ANTI-FIGHTER",
-    "BARRAGE",
-    "BOMBARDMENT",
-    "DEPLOY",
-    "PRODUCTION"
-}
 
-def wrap_text_by_pixel(text, font, max_width, draw, highlight_terms=None):
-    if highlight_terms is None:
-        highlight_terms = set()
+def check_highlight(word):
+    exempt_words = {"PDS", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "SEIDR"}
+    # Add doesn't contain a number
+    return word.upper() == word and len(word) > 1 and not any(char.isdigit() for char in word) and word not in exempt_words
 
+def wrap_text_by_pixel(text, font, max_width, draw):
     # Tokenize words
-    raw_words = text.split()
-    i = 0
-    tokens = []
+    tokens = text.split()
 
-    while i < len(raw_words):
-        matched = False
-        for span in [3, 2, 1]:
-            if i + span <= len(raw_words):
-                phrase_words = raw_words[i:i+span]
-                phrase = " ".join(phrase_words)
-                if phrase in highlight_terms:
-                    tokens.append(phrase)
-                    i += span
-                    matched = True
-                    break
-        if not matched:
-            tokens.append(raw_words[i])
-            i += 1
 
     # Now wrap using token list
     lines = []
@@ -586,57 +561,56 @@ def build_color_map(mask_img: Image.Image, faction_color: tuple[int, int, int]) 
 
 
 def draw_mixed_font_line(
-    draw, line, y, x_start, normal_font, special_font, font_unlock, font_size, font_color='white', center=False, highlight_terms=None
+    draw, line, y, x_start, normal_font, special_font, font_unlock, font_size, font_color='white', center=False
 ):
-    if highlight_terms is None:
-        highlight_terms = {
-            "SUSTAIN",
-            "DAMAGE",
-            "SPACE",
-            "CANNON",
-            "ANTI-FIGHTER",
-            "BARRAGE",
-            "BOMBARDMENT",
-            "DEPLOY",
-            "PRODUCTION",
-        }
-
     words = line.split()
+
+    punctuation = [',', '.', ';', '!', '?']
+
+    # Split the tokens further to sperate punctuation from the attached word
+    split_words = []
+    for word in words:
+        if word[-1] in punctuation:
+            split_words.append(word[:-1])
+            split_words.append(word[-1])
+        else:
+            split_words.append(word)
+
+    words = split_words
+
+
     if center:
         total_width = 0
         for word in words:
-            if word in highlight_terms:
+            if word in punctuation:
+                total_width += draw.textlength(word, font=normal_font)
+            elif check_highlight(word):
                 total_width += draw.textlength(word + " ", font=special_font)
             else:
                 total_width += draw.textlength(word + " ", font=normal_font)
         x_cursor = (draw.im.size[0] - total_width) // 2
     else:
         x_cursor = x_start
-    i = 0
+    
     dy_special = -font_size * 0.07
-    while i < len(words):
-        matched = False
-        for span in [3, 2, 1]:
-            if i + span <= len(words):
-                phrase_words = words[i:i+span]
-                phrase = " ".join(phrase_words)
-                if phrase in highlight_terms:
-                    draw.text((x_cursor, y + dy_special), phrase, font=special_font, fill=font_color)
-                    x_cursor += draw.textlength(phrase + " ", font=special_font)
-                    i += span
-                    matched = True
-                    break
-                elif phrase == "UNLOCK:" or phrase == "ACTION:":
-                    draw.text((x_cursor, y), phrase, font=font_unlock, fill=font_color)
-                    x_cursor += draw.textlength(phrase + " ", font=font_unlock)
-                    i += span
-                    matched = True
-                    break
-        if not matched:
-            word = words[i]
-            draw.text((x_cursor, y), word, font=normal_font, fill=font_color)
-            x_cursor += draw.textlength(word + " ", font=normal_font)
-            i += 1
+    spacing = ""
+    for word in words:
+        if word == "UNLOCK:" or word == "ACTION:":
+            draw.text((x_cursor, y), word, font=font_unlock, fill=font_color)
+            x_cursor += draw.textlength(spacing + word, font=font_unlock)
+        elif check_highlight(word):
+            draw.text((x_cursor, y + dy_special), spacing + word, font=special_font, fill=font_color)
+            x_cursor += draw.textlength(spacing + word, font=special_font)
+        else:
+            
+            if word in punctuation:
+                draw.text((x_cursor, y), word, font=normal_font, fill=font_color)
+                x_cursor += draw.textlength(word, font=normal_font)
+            else:
+                draw.text((x_cursor, y), spacing + word, font=normal_font, fill=font_color)
+                x_cursor += draw.textlength(spacing + word, font=normal_font)
+        
+        spacing = " "
     
     return
 
@@ -711,7 +685,6 @@ def make_cards(
     font_body,
     font_unlock,
     font_special,
-    highlight_terms,
     header_font_size=100,
     body_font_size=70,
     gamecrafter=False
@@ -788,19 +761,19 @@ def make_cards(
             y += header_font_size + extra_y_inc
 
         # Write the unlock condition text on the card centered in the middle of the card
-        unlock_lines = wrap_text_by_pixel(unlock_condition, font_body, card_image.width - border, draw, highlight_terms=highlight_terms)
+        unlock_lines = wrap_text_by_pixel(unlock_condition, font_body, card_image.width - border, draw)
         total_text_height = sum(body_font_size + extra_y_inc for line in unlock_lines) - extra_y_inc
         y = (card_image.height - total_text_height) // 2
         for line in unlock_lines:
-            draw_mixed_font_line(draw, line, y, 100, font_body, font_special, font_unlock, body_font_size, center=True, highlight_terms=highlight_terms)
+            draw_mixed_font_line(draw, line, y, 100, font_body, font_special, font_unlock, body_font_size, center=True)
             y += body_font_size + extra_y_inc
 
         # Write the reward wording text on the back in the middle of the card
-        reward_lines = wrap_text_by_pixel(reward_wording, font_body, back_image.width - border, draw_back, highlight_terms=highlight_terms)
+        reward_lines = wrap_text_by_pixel(reward_wording, font_body, back_image.width - border, draw_back)
         total_text_height = sum(body_font_size + extra_y_inc for line in reward_lines) - extra_y_inc
         y = (back_image.height - total_text_height) // 2
         for line in reward_lines:
-            draw_mixed_font_line(draw_back, line, y, 100, font_body, font_special, font_unlock, body_font_size, center=True, highlight_terms=highlight_terms)
+            draw_mixed_font_line(draw_back, line, y, 100, font_body, font_special, font_unlock, body_font_size, center=True)
             y += body_font_size + extra_y_inc
 
         # Apply color maps as an HSL Color overlay to back
@@ -1121,7 +1094,6 @@ def main():
                         font_body,
                         font_unlock,
                         font_special,
-                        highlight_terms,
                         header_font_size,
                         body_font_size,
                         args.gamecrafter
